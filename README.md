@@ -8,7 +8,7 @@
 
 ### 1. Download sequences from RefSeq.
 
-Using web-site [NCBI RefSeq] (https://www.ncbi.nlm.nih.gov/refseq/) with options `((complete mitochondrion RefSeq)) AND "chordates"[porgn:__txid7711] `, download GenBank file.
+Using web-site [NCBI RefSeq](https://www.ncbi.nlm.nih.gov/refseq/) with options `((complete mitochondrion RefSeq)) AND "chordates"[porgn:__txid7711] `, download GenBank file.
 
 ### 2. Get genes from GenBank
 
