@@ -1,8 +1,4 @@
----
-title: mtdna-192component-mutspec-chordata
-author: Dmitrii Iliushchenko
-date: 04.11.2022
----
+# mtdna-192component-mutspec-chordata
 
 ## Environment
 
