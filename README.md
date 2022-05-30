@@ -1,5 +1,9 @@
 # mtdna-192component-mutspec-chordata
 
+## Authors:
+- Dmitrii Iliushchenko
+- Konstantin Popadin (**Supervisor**)
+
 ## Environment
 
 - python 3.9+
@@ -21,9 +25,12 @@ Obtaining the 3rd and 5th component mutation spectrum is carried out using the `
 * Species - Name of species
 
 * MutType- Type of a substitution, where:
-    a. - 0 - Non Synonymous
-    b. - 1 - Synonymous
-    c. - 2 - FourFold Synonymous
+
+    a. `0` - Non Synonymous
+    
+    b. `1` - Synonymous
+    
+    c. `2` - FourFold Synonymous
 
 * 3Pos - `1` if the substitution is in the third position of codon, else `0` (second or first position)
 * Mut3 - 3 component format of substitution, where substitution in 2nd position
