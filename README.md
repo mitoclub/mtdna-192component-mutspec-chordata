@@ -20,7 +20,7 @@ To obtain all 13 mitochondrial genes use script `scripts/get_genes_from_genbank.
 
 ### 3. Obtain observed mutspec
 
-Obtaining the 3rd and 5th component mutation spectrum is carried out using the `scripts/make_comp_mut.ipynb` script and `data/VertebratePolymorphisms.MutSpecDataWithNonSyn.txt` table. At the output, we get a table in `.csv` format, you can see an description of this table below.
+Obtaining the 3rd and 5th component mutation spectrum is carried out using the `scripts/observed_mutspec.ipynb` script and `data/VertebratePolymorphisms.MutSpecDataWithNonSyn.txt` table. At the output, we get a table in `.csv` format, you can see an description of this table below.
 
 * Species - Name of species
 
@@ -33,9 +33,8 @@ Obtaining the 3rd and 5th component mutation spectrum is carried out using the `
     c. `2` - FourFold Synonymous
 
 * 3Pos - `1` if the substitution is in the third position of codon, else `0` (second or first position)
-* Mut3 - 3 component format of substitution, where substitution in 2nd position
-* Mut5 - 5 component format of substitution, where substitution in 3d position
+* Mut3 - 3 component format of substitution
+* Mut5 - 5 component format of substitution
+* Pos - position of substitution in codon
 
-**Upper case shows nucleotides related to triplet in which the substitution happened**
-
-![](https://github.com/DIliushchenko/mtdna-192component-mutspec-chordata/blob/main/pictures/Example_Obs_mutspec.png?raw=true)
+![]()
