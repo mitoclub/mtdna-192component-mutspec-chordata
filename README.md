@@ -37,4 +37,4 @@ Obtaining the 3rd and 5th component mutation spectrum is carried out using the `
 * Mut5 - 5 component format of substitution
 * Pos - position of substitution in codon
 
-![]()
+![](https://github.com/DIliushchenko/mtdna-192component-mutspec-chordata/blob/main/pictures/Example_Obs_mutspec.png?raw=true)
