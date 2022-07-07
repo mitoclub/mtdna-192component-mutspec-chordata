@@ -41,6 +41,7 @@ At the output, we get a table in `.csv` format, you can see the description of t
 
 * 3Pos - `1` if the substitution is in the third position of codon, else `0` (second or first position)
 
+
 ### 4. Obtain observed mutspec
 
 Obtaining the 3rd and 5th component mutation spectrum is carried out using the `scripts/observed_mutspec.ipynb` script and `data/VertebratePolymorphisms.MutSpecDataWithNonSyn.txt` table. 
