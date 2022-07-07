@@ -135,3 +135,7 @@ dmypy.json
 #Jupyter
 /scripts/.ipynb_checkpoints
 /script/.ipython_config
+
+# Large files
+data/exp_mut_spec.csv
+data/counted_codons_cytb.csv
