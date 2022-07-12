@@ -50,6 +50,7 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
+scripts/check_me.ipynb
 
 # Translations
 *.mo
@@ -139,3 +140,7 @@ dmypy.json
 # Large files
 data/exp_mut_spec.csv
 data/counted_codons_cytb.csv
+data/sequence.gb
+data/expected_freqs.csv
+data/taxonomy_result.xml
+
