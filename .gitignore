@@ -50,6 +50,7 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
+scripts/check_me.ipynb
 
 # Translations
 *.mo
@@ -128,14 +129,22 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-#MacOS 
+# MacOS 
 .DS_Store
 .idea/
 
-#Jupyter
+# Jupyter
 /scripts/.ipynb_checkpoints
 /script/.ipython_config
 
 # Large files
 data/exp_mut_spec.csv
 data/counted_codons_cytb.csv
+data/sequence.gb
+data/expected_freqs.csv
+data/taxonomy_result.xml
+data/cancer_mutspec.csv
+data/taxonomy_vertebrates.csv
+
+# scripts that not used in final pipline
+/scripts/get_taxonomy.ipynb
