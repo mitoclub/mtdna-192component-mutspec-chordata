@@ -149,3 +149,4 @@ data/taxonomy_vertebrates.csv
 # scripts that not used in final pipline
 /scripts/get_taxonomy.ipynb
 *env*
+data/dif.csv
