@@ -4,13 +4,9 @@ library(dplyr)
 library(ggplot2)
 
 mutspec = read.csv('../data/MutSpecVertebratescytb.csv')
-mutspec = mutspec %>% select(-c(RawMutSpecSum, MutSpec))
 
-ms_cls = mutspec %>% group_by(Class, Mut) %>%
-  summarise(RawMutSpecSum = sum(RawMutSpec)) %>% 
-  
-ms_cls = merge(ms_cls, mutspec %>% select(Class, Mut, RawMutSpec, MutBase),
-               by = c('Class', 'Mut'))
+ms_CT = mutspec %>% filter(MutBase == 'C>T')
+ms_AG = mutspec %>% filter(MutBase == 'A>G')
 
-ms_CT = ms_cls %>% filter(MutBase == 'C>T')
-ms_AG = ms_cls %>% filter(MutBase == 'A>G')
+ggplot(data = ms_CT, aes(x=Mut, y=MutSpec,color=Class))+
+  geom_violin()
