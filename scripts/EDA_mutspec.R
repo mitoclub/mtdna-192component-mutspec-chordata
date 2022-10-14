@@ -31,12 +31,18 @@ tr_or_tv = function(x)
 }
 
 obs_mut$TsTv = apply(as.matrix(obs_mut$Mut3), 1, FUN = tr_or_tv)  
+to_bar = obs_mut %>% distinct(Species, .keep_all = TRUE) 
+to_bar_f1 = to_bar %>% group_by(Class) %>% summarise(n=n()) %>% ungroup()
+to_bar_f1$Class = factor(to_bar_f1$Class, levels = c('Actinopterygii',
+                                                        'Amphibia',
+                                                        'Lepidosauria',
+                                                        'Mammalia',
+                                                        'Aves'))
 
 pdf(file='../pictures/EDA_mutspec.pdf')
-to_bar = obs_mut %>% distinct(Species, .keep_all = TRUE) 
 
-ggplot(to_bar, aes(x=Class, fill=Class))+
-  geom_bar()+
+ggplot(to_bar_f1, aes(x=Class, y=n, fill=Class))+
+  geom_bar(stat="identity")+
   theme_classic()+
   ggtitle('Destribution of Species by Classes')
 
