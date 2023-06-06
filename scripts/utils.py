@@ -28,3 +28,5 @@ effect2sbs = {
 }
 sbs2effect = {sbs: ef for ef,sbs_lst in effect2sbs.items() for sbs in sbs_lst}
 sbs2effect["SBS18"] = "ROS"
+sbs2effect["SBS1"] = "C_deamination"
+sbs2effect["SBS5"] = "UNK_clock_like"
