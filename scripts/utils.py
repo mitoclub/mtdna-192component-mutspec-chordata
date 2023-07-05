@@ -1,6 +1,9 @@
 import numpy as np
 import pandas as pd
 
+from pymutspec.annotation import rev_comp
+from pymutspec.constants import possible_sbs192, possible_sbs12, possible_sbs96
+
 
 def calc_mutspec_class(df: pd.DataFrame, group_col="Class"):
     ms_cls = df.groupby([group_col, 'Mut'])['RawMutSpec'].sum().reset_index()
@@ -8,6 +11,44 @@ def calc_mutspec_class(df: pd.DataFrame, group_col="Class"):
     ms_cls['MutSpec'] = ms_cls.RawMutSpec / ms_cls.RawMutSpecSum
     ms_cls = ms_cls.drop(['RawMutSpec', 'RawMutSpecSum'], axis=1)
     return ms_cls
+
+
+def collapse_sbs192(df: pd.DataFrame, to=12):
+    assert (df.columns == possible_sbs192).all()
+    df = df.copy()
+    if to == 12:
+        for sbs192 in possible_sbs192:
+            sbs12 = sbs192[2:5]
+            if sbs12 in df.columns.values:
+                df[sbs12] += df[sbs192]
+            else:
+                df[sbs12] = df[sbs192]
+
+        return df[possible_sbs12]
+    elif to == 96:
+        for sbs96 in possible_sbs96:
+            sbs96_rev = rev_comp(sbs96)
+            df[sbs96] = df[sbs96] + df[sbs96_rev]
+        return df[possible_sbs96]
+    else:
+        raise NotImplementedError()
+
+
+def complete_sbs_columns(df: pd.DataFrame, ncomp):
+    if ncomp == 96:
+        assert df.shape[1] < 96
+        possible_sbs = possible_sbs96
+    elif ncomp == 192:
+        possible_sbs = possible_sbs192
+    else:
+        raise NotImplementedError
+    
+    df = df.copy()
+    if len(df.columns) != 192:
+        for sbs in set(possible_sbs).difference(df.columns.values):
+            df[sbs] = 0.
+    df = df[possible_sbs]
+    return df
 
 
 effect2sbs = {
@@ -28,3 +69,5 @@ effect2sbs = {
 }
 sbs2effect = {sbs: ef for ef,sbs_lst in effect2sbs.items() for sbs in sbs_lst}
 sbs2effect["SBS18"] = "ROS"
+sbs2effect["SBS1"] = "C_deamination"
+sbs2effect["SBS5"] = "UNK_clock_like"
