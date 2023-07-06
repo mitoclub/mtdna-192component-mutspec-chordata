@@ -1,12 +1,9 @@
 # mtdna-192component-mutspec-chordata
 
-## Authors:
-- Dmitrii Iliushchenko
-- Konstantin Popadin (**Supervisor**)
-
 ## Environment
 
 - python 3.9+
+- [PyMutSpec-0.0.4](https://pypi.org/project/PyMutSpec/)
 
 ## Workflow
 
@@ -23,6 +20,7 @@ To obtain all 13 mitochondrial genes use script `scripts/get_genes_from_genbank.
 Obtaining the 3rd component expected mutation spectrum is carried out using the `scripts/from_gb_to_exp_subs.py` script and fasta files obtained from GenBank in 2nd step. 
 
 At the output, we get a table in `.csv` format, you can see the description of this table below.
+
 * Species - Name of species
 
 * Gene - gene where substitution occurred
@@ -32,12 +30,14 @@ At the output, we get a table in `.csv` format, you can see the description of t
 * MutType- Type of substitution, where:
 
     a. `0` - Non Synonymous
-    
+
     b. `1` - Synonymous
-    
+
     c. `2` - FourFold Synonymous
 
-    d. `-1` - StopCodon
+    d. `-1` - StopLoss
+
+    e. `-1` - StopGain
 
 * 3Pos - `1` if the substitution is in the third position of codon, else `0` (second or first position)
 
@@ -47,7 +47,7 @@ At the output, we get a table in `.csv` format, you can see the description of t
 Obtaining the 3rd and 5th component mutation spectrum is carried out using the `scripts/observed_mutspec.ipynb` script and `data/VertebratePolymorphisms.MutSpecDataWithNonSyn.txt` table. 
 At the output, we get a table in `.csv` format, descriptions almost the same compared with previous table in 3d step
 
-![](pictures/Example_Obs_mutspec.png)
+![table](pictures/Example_Obs_mutspec.png)
 
 ### 5. Count codons
 
