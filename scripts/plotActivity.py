@@ -98,22 +98,32 @@ artifacts_sigs = pd.DataFrame(np.array([['SBS27', '#C8C8C8'],
 # with open('additional_colors.txt', 'r') as f: colors = f.read().splitlines()
 ##########################################
 #function to plot Sample Activities
-def plotActivity(activity_file, output_file = "Activity_in_samples.pdf", bin_size = 50, log = False):
+def plotActivity(
+        activity_file, output_file = "../pictures/Activity_in_samples.pdf", 
+        bin_size = 50, log = False, 
+        sort_by_sum=False, scale=True, custom_colors=None,
+        delimiter_step=None, delimiter_size=1, show=False, rename=False,
+    ):
     size = int(bin_size)
     inputDF = pd.read_table(activity_file,index_col = 0)
     inputDF = inputDF.loc[:, (inputDF != 0).any(axis = 0)]
-    inputDF["sum"]=inputDF.sum(axis = 1)
-    inputDF.sort_values(by = "sum",inplace = True,ascending = False)
-    inputDF.drop(columns = "sum",inplace = True)
+    ylabel = "Number of mutations in each signature"
+    if sort_by_sum:
+        inputDF["sum"]=inputDF.sum(axis = 1)
+        inputDF.sort_values(by = "sum",inplace = True,ascending = False)
+        inputDF.drop(columns = "sum",inplace = True)
+    elif scale:
+        inputDF = (inputDF.T / inputDF.sum(axis=1)).T
+        ylabel = "Fraction of mutations in each signature"
     list_of_dfs = [inputDF.iloc[i:i+size,:] for i in range(0, len(inputDF),size)]
     all_sig = list(inputDF.columns.values)
     s1 = color_code[color_code['signature'].isin(all_sig)]["signature"].tolist()
     s3 = artifacts_sigs[artifacts_sigs['signature'].isin(all_sig)]["signature"].tolist()
-    a = [x for x in all_sig if x not in s1]
+    a  = [x for x in all_sig if x not in s1]
     s2 = [x for x in a if x not in s3]
     signature_list= s1 + s2 +s3
     if len(s2) <= len(colors):
-        #print("Haha! we have defined all colors")
+        # print("Haha! we have defined all colors")
         color_list = color_code[color_code['signature'].isin(all_sig)]["color"].tolist() + colors[:len(s2)] + artifacts_sigs[artifacts_sigs['signature'].isin(all_sig)]["color"].tolist()
     else:
         #print("Generating random colors...")
@@ -122,7 +132,14 @@ def plotActivity(activity_file, output_file = "Activity_in_samples.pdf", bin_siz
             rand_color = "#%06x" % random.randint(0, 0xFFFFFF)
             rand_colors_list += [rand_color]
         color_list = color_code[color_code['signature'].isin(all_sig)]["color"].tolist() + colors[:len(s2)] + rand_colors_list + artifacts_sigs[artifacts_sigs['signature'].isin(all_sig)]["color"].tolist()
-
+    
+    if custom_colors is not None:
+        if len(custom_colors) == len(color_list):
+            color_list = custom_colors
+            print("Colors replaced")
+        else:
+            raise Exception(f"Custom colors list must have length = {len(color_list)}, but input has length = {len(custom_colors)}")
+    print(color_list)
 #Start plotting    
     pp = PdfPages(output_file)
     for j in range(0,len(list_of_dfs)):
@@ -131,13 +148,20 @@ def plotActivity(activity_file, output_file = "Activity_in_samples.pdf", bin_siz
         figure_length = plot_length + 5
         Lmargin = 1.5/figure_length
         names = list_of_dfs[j].index.values.tolist()
-        x_pos1 = list(map(lambda x : x + 0.2, list(range(0, len(names)))))
+        if rename:
+            names = [x.split('-')[1] for x in names]
+        # x_pos1 = list(map(lambda x : x + 0.2, list(range(0, len(names)))))
         x_pos = list(range(0, len(names)))
+
+        if delimiter_step:
+            for i in range(len(x_pos)):
+                x_pos[i] = x_pos[i] + (i // delimiter_step) * delimiter_size
+        
         barWidth=1
         sig_activity_list=[]
         for i in range(0,len(signature_list)):
             sig_activity_list.append(list_of_dfs[j][signature_list[i]].tolist())
-        plot = plt.figure(figsize=(figure_length,7))
+        plot = plt.figure(figsize=(figure_length, 5))
         plt.rc('axes', edgecolor = 'lightgray')
         #fig, ax = plt.subplots(figsize=(len(list_of_dfs[6])/50*16+2,6))
         panel1 = plt.axes([Lmargin, 0.25, plot_length / figure_length , 0.6])
@@ -155,13 +179,49 @@ def plotActivity(activity_file, output_file = "Activity_in_samples.pdf", bin_siz
             else:
                 bottom_bars = np.add(bottom_bars,sig_activity_list[i-1]).tolist()
                 plot_list.append(plt.bar(x_pos, sig_activity_list[i], bottom = bottom_bars, color = color_list[i], edgecolor = 'white', width = barWidth))
-        plt.xticks(x_pos, names, rotation = 90,ha = "right",rotation_mode="anchor")
-        plt.legend(plot_list, signature_list, fontsize="small", bbox_to_anchor=(1 + 0.5 / plot_length, 1), loc='upper left', borderaxespad=0.)
+        plt.xticks(x_pos, names, rotation = 90, ha = "right", rotation_mode="anchor")
+        plt.legend(plot_list[::-1], signature_list[::-1], fontsize="small", bbox_to_anchor=(1 + 0.5 / plot_length, 1), loc='upper left', borderaxespad=0.)
         if log: 
             plt.yscale('log')
             print("WARNING: When log scale is applied to a stacked plot, the size of the bars are not proportional to the real value")
             plt.ylabel("log10 of mutations in each signature")
-        plt.ylabel("Number of mutations in each signature")
-        pp.savefig(plot) 
+        plt.ylabel(ylabel)
+        if show:
+            plt.show()
+        pp.savefig(plot, bbox_inches='tight') 
         plt.close()
     pp.close()
+
+
+def main():
+    custom_colors = [
+        '#acf2d0', 
+        '#63d69e', 
+        '#f8b6b3', 
+        '#d9f7b0', 
+        '#fae1a5', 
+        '#fad682', 
+        'tab:pink', 
+        'tab:orange', 
+        'tab:olive', 
+        'tab:purple', 
+        '#7852d9',
+    ]
+    lbl = "full"
+    inpath = "./data/decomp/share/{}_Assignment_Solution_Activities.txt"
+    outpath = "./pictures/decomp/{}.pdf"
+    plotActivity(
+        inpath.format(lbl), outpath.format(lbl), 
+        bin_size=30, 
+        custom_colors=custom_colors,
+        delimiter_step=10, delimiter_size=3,
+        rename=True,
+    )
+    # for lbl in ["low", "high", "high_minus_low"]:
+    #     plotActivity(
+    #         inpath.format(lbl), outpath.format(lbl), bin_size=10,
+    # )   
+
+
+if __name__ == "__main__":
+    main()
