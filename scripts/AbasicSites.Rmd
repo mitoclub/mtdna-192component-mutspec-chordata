@@ -11,8 +11,12 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 rm(list=ls(all=TRUE))
 library(knitr)
-library(tidyverse)
-library(kableExtra)
+# library(tidyverse)
+# library(kableExtra)
+library(ggplot2)
+library(ggrepel)
+options(ggrepel.max.overlaps = Inf)
+
 ```
 
 ## Background
@@ -44,6 +48,26 @@ text(AB$avgL,AB$avgH,AB$origtriH)
 <br>
 <br>
 
+#### 2.5. 
+***
+```{r}
+ggplot(AB, aes(avgL, avgH, label = origtriH)) +
+  geom_text_repel(segment.linetype=3) +
+  geom_point(color = 'red') +
+  theme_classic(base_size = 20) +
+  ylab('Abasic sites per trinucleotide motifs on heavy strand') +
+  xlab('Abasic sites per trinucleotide motifs on light strand') +
+  geom_abline(slope = 1,
+              intercept = 0,
+              color="blue",
+              linetype = "dashed")
+# png("mtcars.png")
+ggsave("../abasic_sites/h_vs_l.pdf", device = "pdf", width = 10, height = 10)
+```
+<br>
+<br>
+<br>
+
 #### 3. C is more often abasic
 ***
 ```{r}
@@ -58,5 +82,4 @@ boxplot(AB[AB$AbasicSiteOnHeavyStrand == 'C',]$avgH, AB[AB$AbasicSiteOnHeavyStra
 boxplot(AB[AB$AbasicSiteOnHeavyStrand == 'A',]$avgH, AB[AB$AbasicSiteOnHeavyStrand == 'T',]$avgH, AB[AB$AbasicSiteOnHeavyStrand == 'G',]$avgH, AB[AB$AbasicSiteOnHeavyStrand == 'C',]$avgH, notch = TRUE, names = c('A','T','G','C'))
 
 ```
-
 
