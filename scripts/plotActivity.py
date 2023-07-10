@@ -208,7 +208,7 @@ def main():
         '#7852d9',
     ]
     lbl = "full"
-    inpath = "./data/decomp/share/{}_Assignment_Solution_Activities.txt"
+    inpath = "./data/decomp/{}_Assignment_Solution_Activities.txt"
     outpath = "./pictures/decomp/{}.pdf"
     plotActivity(
         inpath.format(lbl), outpath.format(lbl), 
