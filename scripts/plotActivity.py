@@ -114,7 +114,7 @@ def plotActivity(
         inputDF.drop(columns = "sum",inplace = True)
     elif scale:
         inputDF = (inputDF.T / inputDF.sum(axis=1)).T
-        ylabel = "Fraction of mutations in each signature"
+        ylabel = "Fraction of signatures in decomposed spectra"
     list_of_dfs = [inputDF.iloc[i:i+size,:] for i in range(0, len(inputDF),size)]
     all_sig = list(inputDF.columns.values)
     s1 = color_code[color_code['signature'].isin(all_sig)]["signature"].tolist()
@@ -167,7 +167,7 @@ def plotActivity(
         panel1 = plt.axes([Lmargin, 0.25, plot_length / figure_length , 0.6])
         bottom_bars = []
         plot_list = []
-        plt.xlim([-0.5, len(names)-0.5])
+        plt.xlim(-0.5, max(x_pos)+0.5)
         #ax.spines['right'].set_visible(False)
         #ax.spines['top'].set_visible(False)
         for i in range(0,len(signature_list)):
