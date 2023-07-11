@@ -52,9 +52,9 @@ text(AB$avgL,AB$avgH,AB$origtriH)
 ***
 ```{r}
 ggplot(AB, aes(avgL, avgH, label = origtriH)) +
-  geom_text_repel(segment.linetype=3) +
-  geom_point(color = 'red') +
-  theme_classic(base_size = 20) +
+  geom_text_repel(segment.linetype=3, size=7) +
+  geom_point(color = 'red', size=1) +
+  theme_classic(base_size = 32) +
   ylab('Abasic sites per trinucleotide motifs on heavy strand') +
   xlab('Abasic sites per trinucleotide motifs on light strand') +
   geom_abline(slope = 1,
@@ -62,7 +62,7 @@ ggplot(AB, aes(avgL, avgH, label = origtriH)) +
               color="blue",
               linetype = "dashed")
 # png("mtcars.png")
-ggsave("../abasic_sites/h_vs_l.pdf", device = "pdf", width = 10, height = 10)
+ggsave("../pictures/abasic_sites/h_vs_l.pdf", device = "pdf", width = 12, height = 12)
 ```
 <br>
 <br>
