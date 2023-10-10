@@ -47,7 +47,7 @@ obs_mut = pd.read_csv('../data/ObsMutSpec.csv')
 obs_sps = list(obs_mut['Species'])
 
 with open('../data/exp_mut_spec.csv', 'w') as wr_file:
-    col = ['Species', 'Gene', 'Mut3', 'MutType', '3Pos']  # define colnames of future csv
+    col = ['Species', 'Gene', 'Mut3', 'MutType', '3Pos', 'Codon']  # define colnames of future csv
     wr_file.write('\t'.join(col))
     wr_file.write('\n')
     for fasta_index in fasta_files:
@@ -84,7 +84,7 @@ with open('../data/exp_mut_spec.csv', 'w') as wr_file:
                             # MutSpec in format A[T>G]C
                             complete_exp_codon = seq[prev_nuc] + '[' + seq[nucleotide_position] + '>' + \
                                                  nucleotide_change + ']' + seq[next_nuc]
-                            out = [species_name, gene_in_file, complete_exp_codon, str(type_of_subs), str(pos3)]
+                            out = [species_name, gene_in_file, complete_exp_codon, str(type_of_subs), str(pos3), codon]
                             out = '\t'.join(out)
                             wr_file.write(out)
                             wr_file.write('\n')
