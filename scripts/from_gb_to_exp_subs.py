@@ -47,7 +47,7 @@ obs_mut = pd.read_csv('../data/ObsMutSpec.csv')
 obs_sps = list(obs_mut['Species'])
 
 with open('../data/exp_mut_spec.csv', 'w') as wr_file:
-    col = ['Species', 'Gene', 'Mut3', 'MutType', '3Pos', 'Codon']  # define colnames of future csv
+    col = ['Species', 'Gene', 'Mut3', 'MutType', 'Pos', '3Pos', 'Codon']  # define colnames of future csv
     wr_file.write('\t'.join(col))
     wr_file.write('\n')
     for fasta_index in fasta_files:
@@ -70,7 +70,7 @@ with open('../data/exp_mut_spec.csv', 'w') as wr_file:
                     codon = ''.join((seq[start_of_codon:start_of_codon + 3]))
                     subs = ['A', 'T', 'G', 'C']
                     all_nuc = ''.join(seq[prev_nuc] + seq[nucleotide_position] + seq[next_nuc])
-                    if len(re.findall(r'[ATGC]', all_nuc)) == 3:  # all three nucleotides must be A,T,G or C
+                    if len(re.findall(r'[ATGC]', all_nuc)) == 3 and len(re.findall(r'[ATGC]', codon)) == 3:  # all three nucleotides must be A,T,G or C
                         subs.remove(seq[nucleotide_position])  # take only non-repeated nucleotides
                         for nucleotide_change in subs:
                             changed_codon = list(codon)
@@ -83,8 +83,9 @@ with open('../data/exp_mut_spec.csv', 'w') as wr_file:
                                 pos3 = 0
                             # MutSpec in format A[T>G]C
                             complete_exp_codon = seq[prev_nuc] + '[' + seq[nucleotide_position] + '>' + \
-                                                 nucleotide_change + ']' + seq[next_nuc]
-                            out = [species_name, gene_in_file, complete_exp_codon, str(type_of_subs), str(pos3), codon]
+                                                    nucleotide_change + ']' + seq[next_nuc]
+                            out = [species_name, gene_in_file, complete_exp_codon, str(type_of_subs), 
+                                    str(position_in_codon), str(pos3), str(codon)]
                             out = '\t'.join(out)
                             wr_file.write(out)
                             wr_file.write('\n')
