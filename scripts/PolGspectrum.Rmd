@@ -1,0 +1,48 @@
+---
+title: "Analysis of the pol g spectrum"
+author: "Alina G. Mikhailova"
+date: "2023-11-15"
+output:    
+   html_document:
+      toc: true
+      toc_depth: 3
+      toc_float: true
+      number_section: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r echo=FALSE, message=FALSE}
+rm(list=ls(all=TRUE))
+if (!require(ggpubr)) install.packages("ggpubr")
+if (!require(dplyr)) install.packages("dplyr")
+if (!require(tidyr)) install.packages("tidyr")
+if (!require(seqinr)) install.packages('seqinr')
+library(tidyr)
+library(seqinr)
+library(ggpubr)
+library(dplyr)
+```
+
+```{r}
+HSmitogenomeL = read.fasta(file = "../data/polg/HSmito.fasta", seqtype = "DNA")
+mutspec = read.table("../data/polg/PolGspectrum.txt")
+fragL = getFrag(HSmitogenomeL, 10030, 10130)
+content = table(fragL)
+aggsum = aggregate(mutspec$V2, by=list(mutspec$V1), FUN = sum)
+
+names(aggsum) = c("SubType.lightChain", "Freq")
+aggsum$NormFreq = 0
+aggsum[aggsum$SubType == "A_G",]$NormFreq = aggsum[aggsum$SubType == "A_G",]$Freq / content["a"]
+aggsum[aggsum$SubType == "A_C",]$NormFreq = aggsum[aggsum$SubType == "A_C",]$Freq / content["a"]
+aggsum[aggsum$SubType == "C_T",]$NormFreq = aggsum[aggsum$SubType == "C_T",]$Freq / content["c"]
+aggsum[aggsum$SubType == "G_A",]$NormFreq = aggsum[aggsum$SubType == "G_A",]$Freq / content["g"]
+aggsum[aggsum$SubType == "G_T",]$NormFreq = aggsum[aggsum$SubType == "G_T",]$Freq / content["g"]
+aggsum[aggsum$SubType == "T_C",]$NormFreq = aggsum[aggsum$SubType == "T_C",]$Freq / content["t"]
+aggsum[aggsum$SubType == "T_G",]$NormFreq = aggsum[aggsum$SubType == "T_G",]$Freq / content["t"]
+aggsum
+ggbarplot(aggsum, x = "SubType.lightChain", y = "NormFreq")
+
+```
