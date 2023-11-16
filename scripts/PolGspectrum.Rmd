@@ -31,17 +31,18 @@ HSmitogenomeL = read.fasta(file = "../data/polg/HSmito.fasta", seqtype = "DNA")
 mutspec = read.table("../data/polg/PolGspectrum.txt")
 fragL = getFrag(HSmitogenomeL, 10030, 10130)
 content = table(fragL)
+fraccontent =c(content["a"]/sum(content), content["t"]/sum(content), content["g"]/sum(content), content["c"]/sum(content))
 aggsum = aggregate(mutspec$V2, by=list(mutspec$V1), FUN = sum)
-
 names(aggsum) = c("SubType.lightChain", "Freq")
 aggsum$NormFreq = 0
-aggsum[aggsum$SubType == "A_G",]$NormFreq = aggsum[aggsum$SubType == "A_G",]$Freq / content["a"]
-aggsum[aggsum$SubType == "A_C",]$NormFreq = aggsum[aggsum$SubType == "A_C",]$Freq / content["a"]
-aggsum[aggsum$SubType == "C_T",]$NormFreq = aggsum[aggsum$SubType == "C_T",]$Freq / content["c"]
-aggsum[aggsum$SubType == "G_A",]$NormFreq = aggsum[aggsum$SubType == "G_A",]$Freq / content["g"]
-aggsum[aggsum$SubType == "G_T",]$NormFreq = aggsum[aggsum$SubType == "G_T",]$Freq / content["g"]
-aggsum[aggsum$SubType == "T_C",]$NormFreq = aggsum[aggsum$SubType == "T_C",]$Freq / content["t"]
-aggsum[aggsum$SubType == "T_G",]$NormFreq = aggsum[aggsum$SubType == "T_G",]$Freq / content["t"]
+aggsum[aggsum$SubType == "A_G",]$NormFreq = aggsum[aggsum$SubType == "A_G",]$Freq / fraccontent["a"]
+aggsum[aggsum$SubType == "A_C",]$NormFreq = aggsum[aggsum$SubType == "A_C",]$Freq / fraccontent["a"]
+aggsum[aggsum$SubType == "C_T",]$NormFreq = aggsum[aggsum$SubType == "C_T",]$Freq / fraccontent["c"]
+aggsum[aggsum$SubType == "G_A",]$NormFreq = aggsum[aggsum$SubType == "G_A",]$Freq / fraccontent["g"]
+aggsum[aggsum$SubType == "G_T",]$NormFreq = aggsum[aggsum$SubType == "G_T",]$Freq / fraccontent["g"]
+aggsum[aggsum$SubType == "T_C",]$NormFreq = aggsum[aggsum$SubType == "T_C",]$Freq / fraccontent["t"]
+aggsum[aggsum$SubType == "T_G",]$NormFreq = aggsum[aggsum$SubType == "T_G",]$Freq / fraccontent["t"]
+
 aggsum
 ggbarplot(aggsum, x = "SubType.lightChain", y = "NormFreq")
 
