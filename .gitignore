@@ -150,3 +150,4 @@ data/taxonomy_vertebrates.csv
 /scripts/get_taxonomy.ipynb
 *env*
 data/dif.csv
+.Rhistory
