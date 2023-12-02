@@ -1,7 +1,11 @@
-first = open('AbasicSitesMtDNAcontext_start_heavy.csv','r')
+
+PATH_TO_DATA = 'data/abasic_sites/'
+
+
+first = open(PATH_TO_DATA + 'AbasicSitesMtDNAcontext_start_heavy.csv','r')
 first.readline().strip()
 
-reps = open("AbasicSitesMtDNAcontext_HLcompare.csv", "w")
+reps = open(PATH_TO_DATA + "AbasicSitesMtDNAcontext_HLcompare.csv", "w")
 reps.write("tripletH;origtriH;countH;deepcountH;avgH;tripletL;countL;deepcountL;avgL\n")
 
 while True:
@@ -11,7 +15,7 @@ while True:
 
 	row1 = read1.split(';')
 
-	second = open('AbasicSitesMtDNAcontext_start_light.csv','r')
+	second = open(PATH_TO_DATA + 'AbasicSitesMtDNAcontext_start_light.csv','r')
 	second.readline().strip()
 
 	while True:

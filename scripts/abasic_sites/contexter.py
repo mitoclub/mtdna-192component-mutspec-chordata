@@ -2,10 +2,13 @@ import time
 import timeit
 import os
 
-genfilepath = 'mm10_ChrM_oneline.fasta'
+PATH_TO_DATA = 'data/abasic_sites/'
+
+path_to_abasic_data = PATH_TO_DATA + '41467_2022_33594_MOESM26_ESM.csv'
+genfilepath = PATH_TO_DATA + 'mm10_ChrM_oneline.fasta'
 genfile = open(genfilepath,'r')
 
-genfile.readline().strip()
+genfile.readline()
 g = genfile.readline().strip()
 
 
@@ -28,15 +31,14 @@ for i in nucs:
 			triplets.append(i+j+k)
 
 
-path3="AbasicSitesMtDNAcontext_start_heavy.csv"
+path3 = PATH_TO_DATA + "AbasicSitesMtDNAcontext_start_heavy.csv"
 reps3 = open(path3, "w")
 
 reps3.write("triplet;orig;count;deepcount;avg\n")
 
 
 for tri in triplets:
-	filepath = '41467_2022_33594_MOESM26_ESM.csv'
-	file = open(filepath,'r')
+	file = open(path_to_abasic_data,'r')
 	file.readline()
 
 	count = 0
@@ -58,27 +60,17 @@ for tri in triplets:
 				count += 1
 				deepcount += int(row[3])
 	
-	reps3.write("%s;%s;%s;%s;%s\n" % (comp(tri[2]).lower()   +   comp(tri[1])   +   comp(tri[0]).lower(), tri[0].lower()   +   tri[1]   +   tri[2].lower(),count, deepcount, deepcount/count))
+	reps3.write("%s;%s;%s;%s;%s\n" % (comp(tri[2]).lower() + comp(tri[1]) + comp(tri[0]).lower(), tri[0].lower() + tri[1] + tri[2].lower(),count, deepcount, deepcount/count))
 
 
-nucs = ['A','T','G','C']
-triplets = []
-for i in nucs:
-	for j in nucs:
-		for k in nucs:
-			triplets.append(i+j+k)
 
-print(triplets)
-
-
-path3="AbasicSitesMtDNAcontext_start_light.csv"
+path3 = PATH_TO_DATA + "AbasicSitesMtDNAcontext_start_light.csv"
 reps3 = open(path3, "w")
 reps3.write("triplet;count;deepcount;avg\n")
 
 for tri in triplets:
 
-	filepath = '41467_2022_33594_MOESM26_ESM.csv'
-	file = open(filepath,'r')
+	file = open(path_to_abasic_data,'r')
 	file.readline()
 
 	count = 0
@@ -101,4 +93,4 @@ for tri in triplets:
 				deepcount += int(row[3])
 
 	print(tri)
-	reps3.write("%s;%s;%s;%s\n" % (tri[0].lower()   +   tri[1]   +   tri[2].lower(), count, deepcount, deepcount/count))
+	reps3.write("%s;%s;%s;%s\n" % (tri[0].lower() + tri[1] + tri[2].lower(), count, deepcount, deepcount/count))
