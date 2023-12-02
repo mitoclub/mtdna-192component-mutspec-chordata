@@ -5,9 +5,9 @@ import os
 PATH_TO_DATA = 'data/abasic_sites/'
 
 path_to_abasic_data = PATH_TO_DATA + '41467_2022_33594_MOESM26_ESM.csv'
+
 genfilepath = PATH_TO_DATA + 'mm10_ChrM_oneline.fasta'
 genfile = open(genfilepath,'r')
-
 genfile.readline()
 g = genfile.readline().strip()
 
@@ -68,7 +68,6 @@ reps3 = open(path3, "w")
 reps3.write("triplet;count;deepcount;avg\n")
 
 for tri in triplets:
-
 	file = open(path_to_abasic_data,'r')
 	file.readline()
 
@@ -91,5 +90,4 @@ for tri in triplets:
 				count += 1
 				deepcount += int(row[3])
 
-	print(tri)
 	reps3.write("%s;%s;%s;%s\n" % (tri[0].lower() + tri[1] + tri[2].lower(), count, deepcount, deepcount/count))
