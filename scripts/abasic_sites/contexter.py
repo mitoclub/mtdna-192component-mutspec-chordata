@@ -33,7 +33,6 @@ for i in nucs:
 
 path3 = PATH_TO_DATA + "AbasicSitesMtDNAcontext_start_heavy.csv"
 reps3 = open(path3, "w")
-
 reps3.write("triplet;orig;count;deepcount;avg\n")
 
 
@@ -51,7 +50,7 @@ for tri in triplets:
 		row = read.split(';')
 		if row[4] == '-':
 			#print(g[int(row[1])-1:int(row[1])+2] + " " + )
-			if row[0] == "15423": # Exclude D-Loop
+			if int(row[1]) >= 15423: # Exclude D-Loop
 				print("The End")
 				break
 
@@ -83,7 +82,7 @@ for tri in triplets:
 		row = read.split(';')
 		if row[4] == '+':
 			#print(g[int(row[1])-1:int(row[1])+2] + " " + )
-			if row[0] == "15423": # Exclude D-Loop
+			if int(row[1]) >= 15423: # Exclude D-Loop
 				print("The End")
 				break
 
