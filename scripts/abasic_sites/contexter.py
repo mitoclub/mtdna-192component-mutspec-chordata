@@ -57,7 +57,7 @@ for tri in triplets:
 
 		row = read.split(';')
 		if row[4] == '-':
-			if int(row[1]) >= 15423: # Exclude D-Loop
+			if int(row[1]) >= 15422: # Exclude D-Loop
 				print("The End")
 				break
 
@@ -67,7 +67,9 @@ for tri in triplets:
 
 	file.close()
 	count = triplet_counts[tri]
-	reps3.write("%s;%s;%s;%s;%s\n" % (comp(tri[2]).lower() + comp(tri[1]) + comp(tri[0]).lower(), tri[0].lower() + tri[1] + tri[2].lower(), count, deepcount, deepcount/count))
+	tripletH = comp(tri[2]).lower() + comp(tri[1]) + comp(tri[0]).lower()
+	tripletL = tri[0].lower() + tri[1] + tri[2].lower()
+	reps3.write("%s;%s;%s;%s;%s\n" % (tripletH, tripletL, count, deepcount, deepcount/count))
 reps3.close()
 
 
@@ -87,7 +89,7 @@ for tri in triplets:
 
 		row = read.split(';')
 		if row[4] == '+':
-			if int(row[1]) >= 15423: # Exclude D-Loop
+			if int(row[1]) >= 15422: # Exclude D-Loop
 				print("The End")
 				break
 			
@@ -97,5 +99,6 @@ for tri in triplets:
 
 	file.close()
 	count = triplet_counts[tri]
-	reps3.write("%s;%s;%s;%s\n" % (tri[0].lower() + tri[1] + tri[2].lower(), count, deepcount, deepcount/count))
+	tripletL = tri[0].lower() + tri[1] + tri[2].lower()
+	reps3.write("%s;%s;%s;%s\n" % (tripletL, count, deepcount, deepcount/count))
 reps3.close()
