@@ -151,3 +151,4 @@ data/taxonomy_vertebrates.csv
 *env*
 data/dif.csv
 .Rhistory
+.vscode
