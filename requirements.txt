@@ -1,8 +1,9 @@
-biopython==1.81
-matplotlib==3.5.3
-numpy==1.22.4
-pandas==1.4.4
-scipy==1.10.1
-seaborn==0.11.2
-sklearn==0.0
-statsmodels==0.14.0
+biopython~=1.81
+matplotlib~=3.5.3
+numpy~=1.22.4
+pandas~=1.4.4
+scipy~=1.10.1
+seaborn~=0.12.2
+scikit-learn~=1.2.2
+statsmodels~=0.14.0
+pymutspec~=0.0.8

@@ -152,3 +152,5 @@ data/taxonomy_vertebrates.csv
 data/dif.csv
 .Rhistory
 .vscode
+MIDORI2_*
+mutspec_without_taxa.csv
