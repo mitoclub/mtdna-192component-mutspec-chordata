@@ -4,7 +4,7 @@
 
 ## Notebooks
 
-- [asymmetry_TR.ipynb](asymmetry_TR.ipynb) - counts mitochondrial asymmetry and correlation with T and R assymetry, also compare mitochondrial asymmetry of cold (fishes) and warm (aves) species ; creates **AsymmetryTRM.pdf, AsymmetryErrorBars.pdf, TBSS_and_Temperature.pdf**
+- [asymmetry_TR.ipynb](asymmetry_TR.ipynb) - counts mitochondrial asymmetry and correlation with T and R assymetry, also compare mitochondrial asymmetry of cold (fishes) and warm (aves) species ; creates **AsymmetryTRM.pdf, AsymmetryErrorBars.pdf, TBSS_and_Temperature.pdf** (fig. 7a, fig. 7b, fig. 7c)
 - [cancer_analysis.ipynb](cancer_analysis.ipynb) - prepare data for TSSS asymmetry analysis
 - [class_homogenity.ipynb](class_homogenity.ipynb) - UMAP, clustermaps for species spectra in classes (fig. S1)
 - [count_codons.ipynb](count_codons.ipynb) - count how many mutations with context in each species for observed and expected mutations in cytB and merge it; creates **counted_codons_cytb.csv**
