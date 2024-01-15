@@ -4,6 +4,9 @@
 
 - python 3.9+
 - [PyMutSpec-0.0.4](https://pypi.org/project/PyMutSpec/)
+- scikit-learn~=1.2.2
+- statsmodels~=0.14.0
+- scipy~=1.10.1
 
 ## Workflow
 
