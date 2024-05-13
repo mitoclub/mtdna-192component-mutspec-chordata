@@ -138,6 +138,7 @@ dmypy.json
 /script/.ipython_config
 
 # Large files
+data/external/raw_spectum192.csv
 data/exp_mut_spec.csv
 data/counted_codons_cytb.csv
 data/sequence.gb
