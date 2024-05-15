@@ -142,6 +142,9 @@ data/external/raw_spectum192.csv
 data/exp_mut_spec.csv
 data/counted_codons_cytb.csv
 data/sequence.gb
+data/vertebrates_mtdna.full.gb
+data/vertebrates_mtdna.gb
+data/vertebrates_mtdna.gb.head
 data/expected_freqs.csv
 data/taxonomy_result.xml
 data/cancer_mutspec.csv
