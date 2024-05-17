@@ -7,4 +7,3 @@ seaborn~=0.12.2
 scikit-learn~=1.2.2
 statsmodels~=0.14.0
 pymutspec~=0.0.8
-mitos~=2.1.9
