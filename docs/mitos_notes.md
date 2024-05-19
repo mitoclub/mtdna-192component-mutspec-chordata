@@ -22,3 +22,5 @@ parallel  mkdir data/mitos_output/{/.} ';' runmitos.py --input {} -c 2 -o data/m
 # aggregate information
 cat data/mitos_output/*/result.mitos | grep OL > data/mitos_oriL_labels.txt
 ```
+
+Return to analyses in `scripts/cytb_location.ipynb`
