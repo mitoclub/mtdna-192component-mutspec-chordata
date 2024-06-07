@@ -55,11 +55,22 @@ Notebook `notebooks/plot_mutspec.ipynb` plots 12- and 192- component mutational 
 
 ### 4. Comparison of the mutational spectrum
 
-Notebook `notebooks/similarity_jack.ipynb` performs JackKnife Similarity Analysis. In this process we use cosine similarity to compare spectra. We estimated differences between classes using jackknife resampling of species spectra. Next, we randomly selected **20** species from each pair of classes, calculated the 192-component mutational spectrum for both classes, and computed the cosine similarity of either the overall mutational spectrum or its parts
+Notebook `notebooks/similarity_jack.ipynb` performs JackKnife Similarity Analysis. In this process we use cosine similarity to compare spectra. We estimated differences between classes using jackknife resampling of species spectra. Next, we randomly selected **50** species from each pair of classes, calculated the 192-component mutational spectrum for both classes, and computed the cosine similarity of either the overall mutational spectrum or its parts
+
+    Input:
+        - data/new_dataset/MutSpecVertebrates192.csv.gz  - calculated mutation spectra for all vertebrate classes for CytB
+        - /data/human_cancer_spectra_syn_samples.csv - bootstraped samples of cancers with mutational spectrum
 
     Output:
-        -
-        -
-        -
-        -
+        - ../pictures/HeatmapJack/Jackknife_Similarity.pdf - heatmap with cossim results for all classes and mutations 
+        - ../pictures/HeatmapJack/Jackknife_SimilarityTS.pdf - heatmap with cossim results for all classes only in transitions
+        - ../pictures/HeatmapJack/Jackknife_SimilarityTV.pdf - heatmap with cossim results for all classes only in transversions
+        - 4 pdf with heatmap with cossim for all classes and 4 diff substitutions (A>G, C>T, G>A, T>C)
+
+### 5. Deconvolution of SBS signatures   
+
+
+
+
+
 
