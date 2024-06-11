@@ -388,9 +388,9 @@ d2.to_csv('./test_vert2_96.txt', sep='\t', index=False)
 matrix_path = './test_vert1_96.txt'
 output_path = './'
 project = 'vert_1'
-
-
 plotSBS96(matrix_path, output_path, project, percentage=True)
+
+
 matrix_path = './test_vert2_96.txt'
 output_path = './'
 project = 'vert_2'
