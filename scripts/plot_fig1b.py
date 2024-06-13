@@ -380,6 +380,7 @@ def plotSBS96(
 d = pd.read_csv("../data/new_dataset/MutSpecVertebrates192.csv.gz")
 d = d[d.Gene == 'Cytb'] # one gene
 d_agg = d.groupby('Mut').MutSpec.mean().reset_index()
+d_agg['Mut'] = d_agg.Mut.apply(rev_comp)
 
 d_agg.columns = ['MutationType', 'Vert']
 # d['Vert'] = (d['Vert'] * 10000).astype(int)
