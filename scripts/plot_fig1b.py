@@ -35,7 +35,11 @@ matplotlib.use("Agg")
 
 
 # import sigProfilerPlotting as sigPlt
-from pymutspec.annotation import rev_comp
+def rev_comp(mut: str):
+    translator = str.maketrans("ACGT", "TGCA")
+    mut = mut[-1] + mut[1:-1] + mut[0]
+    new_mut = mut.translate(translator)
+    return new_mut
 
 from sigProfilerPlotting import (
     load_custom_fonts, process_input, reindex_sbs96, 
@@ -373,26 +377,28 @@ def plotSBS96(
 
 
 
-d = pd.read_csv("./data/MutSpecALLvert.csv")
-d.columns = ['MutationType', 'Vert']
+d = pd.read_csv("../data/new_dataset/MutSpecVertebrates192.csv.gz")
+d = d[d.Gene == 'Cytb'] # one gene
+d_agg = d.groupby('Mut').MutSpec.mean().reset_index()
+
+d_agg.columns = ['MutationType', 'Vert']
 # d['Vert'] = (d['Vert'] * 10000).astype(int)
-first_muts = ['C>A', 'C>G', 'C>T', 'T>A', 'T>C', 'T>G',]
+first_muts = ['C>A', 'C>G', 'C>T', 'T>A', 'T>C', 'T>G']
 
-d1 = d[d.MutationType.str.slice(2, 5).isin(first_muts)]
+d1 = d_agg[d_agg.MutationType.str.slice(2, 5).isin(first_muts)]
 
-d2 = d[~d.MutationType.str.slice(2, 5).isin(first_muts)]
+d2 = d_agg[~d_agg.MutationType.str.slice(2, 5).isin(first_muts)]
 d2['MutationType'] = d2.MutationType.apply(rev_comp)
 
-d1.to_csv('./test_vert1_96.txt', sep='\t', index=False)
-d2.to_csv('./test_vert2_96.txt', sep='\t', index=False)
-matrix_path = './test_vert1_96.txt'
-output_path = './'
+d1.to_csv('../data/test_vert1_96.txt', sep='\t', index=False)
+d2.to_csv('../data/test_vert2_96.txt', sep='\t', index=False)
+matrix_path = '../data/test_vert1_96.txt'
+output_path = '../pictures/'
 project = 'vert_1'
 plotSBS96(matrix_path, output_path, project, percentage=True)
 
 
-matrix_path = './test_vert2_96.txt'
-output_path = './'
+matrix_path = '../data/test_vert2_96.txt'
+output_path = '../pictures/'
 project = 'vert_2'
 plotSBS96(matrix_path, output_path, project, percentage=True)
-
