@@ -153,7 +153,7 @@ def plotSBS96(
                 y += 1
 
             y = ymax / 1.025
-            ytick_offest = float(y / 3)
+            ytick_offest = 2.4 ### change if you want diff perc
 
             if percentage:
                 ylabs = [
