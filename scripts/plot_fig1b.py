@@ -153,7 +153,7 @@ def plotSBS96(
                 y += 1
 
             y = ymax / 1.025
-            ytick_offest = 2.4 ### change if you want diff perc
+            ytick_offest = 2 ### change if you want diff perc
 
             if percentage:
                 ylabs = [
@@ -176,7 +176,7 @@ def plotSBS96(
                     ytick_offest,
                     ytick_offest * 2,
                     ytick_offest * 3,
-                    ytick_offest * 4,
+                    8,
                 ]
                 ylabels = [
                     0,
@@ -385,6 +385,7 @@ d_agg['Mut'] = d_agg.Mut.apply(rev_comp)
 d_agg.columns = ['MutationType', 'Vert']
 # d['Vert'] = (d['Vert'] * 10000).astype(int)
 first_muts = ['C>A', 'C>G', 'C>T', 'T>A', 'T>C', 'T>G']
+            
 
 d1 = d_agg[d_agg.MutationType.str.slice(2, 5).isin(first_muts)]
 
