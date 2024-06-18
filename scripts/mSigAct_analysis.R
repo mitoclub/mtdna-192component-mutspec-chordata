@@ -1,15 +1,17 @@
+rm(list=ls(all=TRUE))
+
 library(ICAMS)
 library(mSigAct)
 library(cosmicsig)
 library(dplyr)
 
-path = '../data/decomp'
+path = '../data/decomp/SigProfilerAssignment/input'
 samples_names = list.files(path, pattern='_samples.txt', full.names=T)
 samples_names
 
-diff_df = read.table("../data/decomp/high_minus_low_Ts_samples.txt", sep='\t', header =T)
-high_df = read.table("../data/decomp/high_Ts_samples.txt" , sep='\t', header =T)
-low_df = read.table("../data/decomp/low_Ts_samples.txt", sep='\t', header =T)
+diff_df = read.table(samples_names[1], sep='\t', header =T)
+high_df = read.table(samples_names[2], sep='\t', header =T)
+low_df = read.table(samples_names[3], sep='\t', header =T)
 
 diff_df = diff_df %>% 
           rename_at(2:ncol(diff_df),~ paste0('diff', '_', .))
@@ -25,24 +27,24 @@ high_df = high_df[,-1]
 
 final_catalog = cbind(diff_df, high_df, low_df)
 
-write.table(final_catalog, '../data/decomp/samples_mSigAct.txt', sep='\t', row.names = F)
+write.table(final_catalog, '../data/decomp/mSigAct/input/samples_mSigAct.txt', sep='\t', row.names = F)
 
-path_full_catalog = '../data/decomp/samples_mSigAct.txt'
+path_full_catalog = '../data/decomp/mSigAct/input/samples_mSigAct.txt'
 input_catalog <- ICAMS::ReadCatalog(file = path_full_catalog)
 
 
 sigs <- cosmicsig::COSMIC_v3.3$signature$GRCh37$SBS96
 
-sig_use= c('SBS2', 'SBS23', 'SBS44', 'SBS5', 'SBS30', 'SBS12')
+sig_use= c('SBS2', 'SBS26', 'SBS19', 'SBS23', 'SBS44', 'SBS5', 'SBS12', 'SBS30')
 
 sigs_to_use <- sigs[, colnames(sigs) %in% sig_use]
 
 
 ### Proportions are taken from SigProfiler
 
-output_home <- "../data/decomp/mSigAct/custom_prop"
+output_home <- "../data/decomp/mSigAct/output/custom_prop"
 
-sig_prop = c(0.01, 0.03, 0.06, 0.18, 0.33, 0.38)
+sig_prop = c(0.01, 0.02, 0.03, 0.03, 0.03, 0.23, 0.31, 0.35)
 names(sig_prop) = colnames(sigs_to_use)
 
 retval <-
@@ -52,66 +54,11 @@ retval <-
                              output.dir = output_home,
                              max.level = ncol(sigs_to_use) - 1,
                              p.thresh = 0.05 / ncol(sigs_to_use), 
-                             num.parallel.samples = 2, 
-                             mc.cores.per.sample = 5)
-
-### All proportions are the same == 1
-
-output_home <- "../data/decomp/mSigAct/prop1"
-
-sig_prop = c(1, 1, 1, 1, 1, 1)
-names(sig_prop) = colnames(sigs_to_use)
-
-retval <-
-  mSigAct::MAPAssignActivity(spectra = input_catalog, 
-                             sigs = sigs_to_use,
-                             sigs.presence.prop = sig_prop,
-                             output.dir = output_home,
-                             max.level = ncol(sigs_to_use) - 1,
-                             p.thresh = 0.05 / ncol(sigs_to_use), 
-                             num.parallel.samples = 2, 
-                             mc.cores.per.sample = 5)
-
-
-### All proportions are the same == 0.5
-
-output_home <- "../data/decomp/mSigAct/prop05"
-
-sig_prop = c(0.5, 0.5, 0.5, 0.5, 0.5, 0.5)
-names(sig_prop) = colnames(sigs_to_use)
-
-retval <-
-  mSigAct::MAPAssignActivity(spectra = input_catalog, 
-                             sigs = sigs_to_use,
-                             sigs.presence.prop = sig_prop,
-                             output.dir = output_home,
-                             max.level = ncol(sigs_to_use) - 1,
-                             p.thresh = 0.05 / ncol(sigs_to_use), 
-                             num.parallel.samples = 2, 
-                             mc.cores.per.sample = 5)
-
-
-### Proportions from mSigAct with 1 prop
-
-output_home <- "../data/decomp/mSigAct/custom_from1"
-
-
-sig_prop = c(0.047459, 0.236982, 0.390326, 0.224110, 0.225671, 0.018647)
-names(sig_prop) = colnames(sigs_to_use)
-
-retval <-
-  mSigAct::MAPAssignActivity(spectra = input_catalog, 
-                             sigs = sigs_to_use,
-                             sigs.presence.prop = sig_prop,
-                             output.dir = output_home,
-                             max.level = ncol(sigs_to_use) - 1,
-                             p.thresh = 0.05 / ncol(sigs_to_use), 
-                             num.parallel.samples = 2, 
-                             mc.cores.per.sample = 5)
-
+                             num.parallel.samples = 1, 
+                             mc.cores.per.sample = 4)
 
 ### Take all relatable SBS with 1 prop 
-output_home <- "../data/decomp/mSigAct/all_relatable_sbs"
+output_home <- "../data/decomp/mSigAct/output/all_relatable_sbs_prop1"
 
 
 sigs <- cosmicsig::COSMIC_v3.3$signature$GRCh37$SBS96
@@ -137,3 +84,29 @@ retval <-
                              num.parallel.samples = 2, 
                              mc.cores.per.sample = 8, 
                              max.subsets = 100)
+
+
+
+### Proportions from mSigAct with 1 prop
+
+output_home <- "../data/decomp/mSigAct/output/custom_from1"
+
+sigs <- cosmicsig::COSMIC_v3.3$signature$GRCh37$SBS96
+
+sig_use= c('SBS12', 'SBS23', 'SBS30', 'SBS2', 'SBS26', 'SBS21')
+
+sigs_to_use <- sigs[, colnames(sigs) %in% sig_use]
+
+sig_prop = c(0.354678, 0.281191, 0.264693, 0.042005, 0.032462, 0.011505)
+names(sig_prop) = colnames(sigs_to_use)
+
+retval <-
+  mSigAct::MAPAssignActivity(spectra = input_catalog, 
+                             sigs = sigs_to_use,
+                             sigs.presence.prop = sig_prop,
+                             output.dir = output_home,
+                             max.level = ncol(sigs_to_use) - 1,
+                             p.thresh = 0.05 / ncol(sigs_to_use), 
+                             num.parallel.samples = 2, 
+                             mc.cores.per.sample = 5)
+

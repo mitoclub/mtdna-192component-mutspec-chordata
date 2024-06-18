@@ -1,17 +1,15 @@
 prop1
-    prior probabilirty for each cosmic SBS = 1.0
-
-prop05
-    prior probabilirty for each cosmic SBS = 0.5
+    prior probability for each cosmic SBS = 1.0
 
 custom_from1
-    prior probabilirty for SBSs deirved from prop1
-SBS12    0.390326
-SBS2     0.047459
-SBS23    0.224110
-SBS30    0.225671
-SBS44    0.018647
-SBS5     0.236982
+    prior probability for SBSs derived from prop1
+
+SBS12	0.354678
+SBS23	0.281191
+SBS30	0.264693
+SBS2	0.042005
+SBS26	0.032462
+SBS21	0.011505
 
 custom_prop
     priors based on SigProfiler for signatures assignment for mSigAct
