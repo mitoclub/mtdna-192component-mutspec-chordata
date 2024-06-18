@@ -35,7 +35,11 @@ matplotlib.use("Agg")
 
 
 # import sigProfilerPlotting as sigPlt
-from pymutspec.annotation import rev_comp
+def rev_comp(mut: str):
+    translator = str.maketrans("ACGT", "TGCA")
+    mut = mut[-1] + mut[1:-1] + mut[0]
+    new_mut = mut.translate(translator)
+    return new_mut
 
 from sigProfilerPlotting import (
     load_custom_fonts, process_input, reindex_sbs96, 
@@ -484,7 +488,7 @@ def plotSBS96(
                     ytick_offest,
                     ytick_offest * 2,
                     ytick_offest * 3,
-                    ytick_offest * 4,
+                    8,
                 ]
                 ylabels = [
                     0,

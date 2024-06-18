@@ -138,10 +138,12 @@ dmypy.json
 /script/.ipython_config
 
 # Large files
-data/exp_mut_spec.csv
-data/counted_codons_cytb.csv
-data/sequence.gb
-data/expected_freqs.csv
+data/legacy/exp_mut_spec.csv
+data/legacy/ObsMutSpec.csv
+data/legacy/VertebratePolymorphisms.MutSpecDataWithNonSyn.txt
+data/legacy/counted_codons_cytb.csv
+data/legacy/sequence.gb
+data/legacy/expected_freqs.csv
 data/taxonomy_result.xml
 data/cancer_mutspec.csv
 data/taxonomy_vertebrates.csv
