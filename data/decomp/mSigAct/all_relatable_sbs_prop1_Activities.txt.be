@@ -1,0 +1,15 @@
+Samples	SBS12	SBS19	SBS21	SBS23	SBS26	SBS30	SBS6	SBS2	SBS33	SBS7d	SBS1	SBS7a	SBS7b	SBS17a	SBS15
+low_Actinopteri__Ts	320	4	0	18	2	114	4	32	1	0	0	0	0	0	0
+low_Amphibia__Ts	232	0	0	43	0	181	9	42	0	0	0	0	0	0	0
+low_Aves__Ts	166	4	8	52	0	85	7	8	0	0	2	0	0	0	2
+low_Lepidosauria__Ts	210	0	0	42	0	104	9	18	0	0	0	0	0	0	0
+low_Mammalia__Ts	180	0	0	54	0	151	3	23	0	0	1	0	0	0	0
+high_Actinopteri__Ts	319	0	2	374	7	268	15	61	0	0	0	0	0	0	0
+high_Amphibia__Ts	302	0	31	296	0	353	7	81	0	0	0	0	0	0	0
+high_Aves__Ts	659	0	0	359	4	268	3	68	11	0	0	0	0	0	0
+high_Lepidosauria__Ts	268	0	39	416	89	327	6	27	0	0	1	2	3	0	0
+high_Mammalia__Ts	496	0	0	379	0	306	0	33	0	0	0	0	0	0	0
+diff_Actinopteri__Ts	37	0	0	281	9	186	18	28	0	2	0	0	0	0	0
+diff_Aves__Ts	481	0	0	246	33	205	0	41	17	0	0	3	0	4	0
+diff_Lepidosauria__Ts	53	0	42	368	130	205	0	9	3	0	0	0	0	0	0
+diff_Mammalia__Ts	254	3	7	225	90	215	7	0	0	0	0	0	0	0	0
