@@ -82,9 +82,8 @@ retval <-
                              output.dir = output_home,
                              max.level = ncol(sigs_to_use) - 1,
                              p.thresh = 0.05 / ncol(sigs_to_use), 
-                             num.parallel.samples = 4, 
-                             mc.cores.per.sample = 8, 
-                             max.subsets = 100)
+                             num.parallel.samples = 1, 
+                             mc.cores.per.sample = 4)
 
 ### Proportions from mSigAct with 1 prop
 
