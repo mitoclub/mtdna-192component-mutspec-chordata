@@ -688,7 +688,7 @@ def plotSBS96(
 
 
 
-spectra = pd.read_csv("../data/new_dataset/MutSpecVertebrates192.csv.gz")
+spectra = pd.read_csv("./data/new_dataset/MutSpecVertebrates192.csv.gz")
 spectra = spectra[spectra.Gene == 'Cytb'] # one gene
 spectra_mean = spectra.groupby('Mut').MutSpec.mean().reset_index()
 spectra_mean['Mut'] = spectra_mean.Mut.apply(rev_comp)
