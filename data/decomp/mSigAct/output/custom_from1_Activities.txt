@@ -18,7 +18,7 @@ diff_Aves__Ts...Tv	644.0	0.0	249	171.0	26.0	0.0
 low_Aves__Ts...Tv	213.0	21.0	160	0.0	0.0	0.0
 low_Lepidosauria__Ts...Tv	287.0	31.0	159	0.0	0.0	0.0
 high_Actinopteri__Ts.only	330.0	0.0	263	394.0	60.0	0.0
-high_Amphibia__Ts...Tv	419.0	36.0	711	0.0	0.0	0.0
+high_Amphibia__Ts...Tv	449.0	0.0	717	0.0	0.0	0.0
 high_Mammalia__Ts.only	498.0	0.0	361	354.0	0.0	0.0
 low_Mammalia__Ts...Tv	276.0	0.0	226	0.0	0.0	0.0
 low_Amphibia__Ts.only	229.0	0.0	249	0.0	29.0	0.0

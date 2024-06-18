@@ -42,7 +42,7 @@ sigs_to_use <- sigs[, colnames(sigs) %in% sig_use]
 
 ### Proportions are taken from SigProfiler
 
-output_home <- "../data/decomp/mSigAct/output/custom_prop"
+output_home <- "../data/decomp/mSigAct/output/raw_output/custom_prop"
 
 sig_prop = c(0.01, 0.02, 0.03, 0.03, 0.03, 0.23, 0.31, 0.35)
 names(sig_prop) = colnames(sigs_to_use)
@@ -58,7 +58,7 @@ retval <-
                              mc.cores.per.sample = 4)
 
 ### Take all relatable SBS with 1 prop 
-output_home <- "../data/decomp/mSigAct/output/all_relatable_sbs_prop1"
+output_home <- "../data/decomp/mSigAct/output/raw_output/all_relatable_sbs_prop1"
 
 
 sigs <- cosmicsig::COSMIC_v3.3$signature$GRCh37$SBS96
@@ -67,7 +67,8 @@ sig_to_delete= c('SBS32', 'SBS11', 'SBS25', 'SBS31', 'SBS32', 'SBS35', 'SBS86',
                  'SBS87', 'SBS90', 'SBS22', 'SBS88', 'SBS27', 'SBS43', 'SBS45',
                  'SBS46', 'SBS47', 'SBS48', 'SBS49', 'SBS50', 'SBS51', 'SBS52',
                  'SBS53', 'SBS54', 'SBS55', 'SBS56', 'SBS57', 'SBS58', 'SBS59',
-                 'SBS60', 'SBS95', 'SBS9', 'SBS84', 'SBS85')
+                 'SBS60', 'SBS95', 'SBS9', 'SBS84', 'SBS85', 'SBS4', 'SBS29',
+                 'SBS92', 'SBS7a', 'SBS7b', 'SBS7c', 'SBS7d', 'SBS38')
 
 sigs_to_use = sigs[, !(colnames(sigs) %in% sig_to_delete)] 
 
@@ -81,15 +82,13 @@ retval <-
                              output.dir = output_home,
                              max.level = ncol(sigs_to_use) - 1,
                              p.thresh = 0.05 / ncol(sigs_to_use), 
-                             num.parallel.samples = 2, 
+                             num.parallel.samples = 4, 
                              mc.cores.per.sample = 8, 
                              max.subsets = 100)
 
-
-
 ### Proportions from mSigAct with 1 prop
 
-output_home <- "../data/decomp/mSigAct/output/custom_from1"
+output_home <- "../data/decomp/mSigAct/output/raw_output/custom_from1"
 
 sigs <- cosmicsig::COSMIC_v3.3$signature$GRCh37$SBS96
 
@@ -97,7 +96,7 @@ sig_use= c('SBS12', 'SBS23', 'SBS30', 'SBS2', 'SBS26', 'SBS21')
 
 sigs_to_use <- sigs[, colnames(sigs) %in% sig_use]
 
-sig_prop = c(0.354678, 0.281191, 0.264693, 0.042005, 0.032462, 0.011505)
+sig_prop = c(0.359879, 0.285617, 0.255867, 0.042846, 0.027555, 0.015443)
 names(sig_prop) = colnames(sigs_to_use)
 
 retval <-
