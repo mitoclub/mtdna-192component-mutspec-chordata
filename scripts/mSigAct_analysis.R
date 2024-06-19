@@ -82,8 +82,8 @@ retval <-
                              output.dir = output_home,
                              max.level = ncol(sigs_to_use) - 1,
                              p.thresh = 0.05 / ncol(sigs_to_use), 
-                             num.parallel.samples = 1, 
-                             mc.cores.per.sample = 4)
+                             num.parallel.samples = 4, 
+                             mc.cores.per.sample = 8)
 
 ### Proportions from mSigAct with 1 prop
 
@@ -91,11 +91,11 @@ output_home <- "../data/decomp/mSigAct/output/raw_output/custom_from1"
 
 sigs <- cosmicsig::COSMIC_v3.3$signature$GRCh37$SBS96
 
-sig_use= c('SBS12', 'SBS23', 'SBS30', 'SBS2', 'SBS26', 'SBS21')
+sig_use= c('SBS12', 'SBS23', 'SBS30', 'SBS2', 'SBS26', 'SBS21', 'SBS42')
 
 sigs_to_use <- sigs[, colnames(sigs) %in% sig_use]
 
-sig_prop = c(0.359879, 0.285617, 0.255867, 0.042846, 0.027555, 0.015443)
+sig_prop = c(0.365998, 0.272763, 0.228357, 0.038582, 0.030519, 0.013383, 0.011983)
 names(sig_prop) = colnames(sigs_to_use)
 
 retval <-
@@ -106,5 +106,5 @@ retval <-
                              max.level = ncol(sigs_to_use) - 1,
                              p.thresh = 0.05 / ncol(sigs_to_use), 
                              num.parallel.samples = 2, 
-                             mc.cores.per.sample = 5)
+                             mc.cores.per.sample = 8)
 
