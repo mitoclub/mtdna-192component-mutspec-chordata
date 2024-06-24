@@ -159,3 +159,4 @@ MIDORI2_*
 # large files
 mutspec_without_taxa.csv
 data/external/raw_spectum192.csv
+scripts/Rplots.pdf
