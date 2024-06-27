@@ -102,7 +102,8 @@ def plotActivity(
         activity_file, output_file = "../pictures/Activity_in_samples.pdf", 
         bin_size = 50, log = False, 
         sort_by_sum=False, scale=True, custom_colors=None,
-        delimiter_step=None, delimiter_size=1, show=False, rename=False,
+        delimiter_step=None, delimiter_size=1, show=False, 
+        rename=False, figure_width=5,
     ):
     size = int(bin_size)
     inputDF = pd.read_table(activity_file,index_col = 0)
@@ -161,7 +162,7 @@ def plotActivity(
         sig_activity_list=[]
         for i in range(0,len(signature_list)):
             sig_activity_list.append(list_of_dfs[j][signature_list[i]].tolist())
-        plot = plt.figure(figsize=(figure_length, 5))
+        plot = plt.figure(figsize=(figure_length, figure_width))
         plt.rc('axes', edgecolor = 'lightgray')
         #fig, ax = plt.subplots(figsize=(len(list_of_dfs[6])/50*16+2,6))
         panel1 = plt.axes([Lmargin, 0.25, plot_length / figure_length , 0.6])
