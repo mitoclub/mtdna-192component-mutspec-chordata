@@ -1,6 +1,4 @@
-# mtdna-192component-mutspec-chordata
-
-## Deciphering the Foundations of Mitochondrial Mutational Spectra: Replication-Driven and Damage-Induced Signatures Across Chordate Classes
+# Deciphering the Foundations of Mitochondrial Mutational Spectra: Replication-Driven and Damage-Induced Signatures Across Chordate Classes
 
 In this project, we use 2,591 chordata species with the CytB mitochondrial gene from the [NeMu pipeline](https://nemu-pipeline.com). We plot a 192-component mutational spectrum to identify the main factors driving mutagenesis in mitochondrial DNA in chordata species.
 
