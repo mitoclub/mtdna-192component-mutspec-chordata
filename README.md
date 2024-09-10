@@ -8,11 +8,16 @@ In this project, we use 2,591 chordata species with the CytB mitochondrial gene 
 
 * Dmitrii Iliushchenko
 * Bogdan Efimenko
+* Alina G. Mikhailova
 * Konstantin Popadin
 
-## Environment
+## Used software
 
-- python 3.9+
+- Python 3.9+
+- R 4.4.0
+
+## Python environment
+
 - [PyMutSpec-0.0.8](https://pypi.org/project/PyMutSpec/)
 - statsmodels~=0.14.0
 - scipy~=1.10.1
@@ -23,54 +28,30 @@ In this project, we use 2,591 chordata species with the CytB mitochondrial gene 
 - seaborn~=0.12.2
 - scikit-learn~=1.2.2
 - SigProfilerPlotting~=1.3.23
+- SigProfilerAssignment~=0.1.6
 - umap_learn~=0.5.6
 
-## Data
+## R environment
 
-Here is the description of all relatable data that we use in paper:...
+- dplyr_1.1.4
+- cosmicsig_1.1.1 
+- mSigAct_3.0.1
+- ICAMS_3.0.5
 
-## Workflow
+## Repository details
 
-### 1. NeMu pipeline 
+- `./data/` tables with mutaitonal spectra of chordates and cancers, additional tables.
+- `./docs/` files includes 
+- `./notebooks/` all performed analyses on python and R
+- `./pictures/` all picutres obtained during performed analyses
+- `./scripts/` all used scripts for specific data processing during analyses
+- `./ToPaper/` figures used in the paper
 
+See more details in each folder
 
-### 2. Collection of a mutation spectrum
+## Article
 
-
-### 3. Plot mutational spectrum for CytB, COX1, COX3, ND2
-
-Notebook `notebooks/plot_mutspec.ipynb` plots 12- and 192- component mutational spectrum for 4 most offen genes (COX1, COX3, ND2, CytB). 
-    
-    Input:
-        - data/new_dataset/MutSpecVertebrates192.csv.gz  - calculated mutation spectra for all vertebrate classes for COX1, COX3, ND2, CytB
-        
-    Output: 
-        - pictures/Mut12Vert.pdf - 12-component mutaitonal spectrum for all available chordates in Cytb
-        - pictures/MutSpec192Vert.pdf - 192-component mutaitonal spectrum for all available chordates in Cytb
-        - pictures/fig5a.pdf - C>T substitution with all contexts
-        - pictures/fig5b.pdf - A>G substitution with all contexts
-        - ToPaper/SuplFiles/SupplementaryTable1.csv - Table in which each raw represents species with all possible 192 substitutions
-
-        additional pictures of mutational spectra in COX1, COX3, ND2 
-
-### 4. Comparison of the mutational spectrum
-
-Notebook `notebooks/similarity_jack.ipynb` performs JackKnife Similarity Analysis. In this process we use cosine similarity to compare spectra. We estimated differences between classes using jackknife resampling of species spectra. Next, we randomly selected **50** species from each pair of classes, calculated the 192-component mutational spectrum for both classes, and computed the cosine similarity of either the overall mutational spectrum or its parts
-
-    Input:
-        - data/new_dataset/MutSpecVertebrates192.csv.gz  - calculated mutation spectra for all vertebrate classes for CytB
-        - /data/human_cancer_spectra_syn_samples.csv - bootstraped samples of cancers with mutational spectrum
-
-    Output:
-        - ../pictures/HeatmapJack/Jackknife_Similarity.pdf - heatmap with cossim results for all classes and mutations 
-        - ../pictures/HeatmapJack/Jackknife_SimilarityTS.pdf - heatmap with cossim results for all classes only in transitions
-        - ../pictures/HeatmapJack/Jackknife_SimilarityTV.pdf - heatmap with cossim results for all classes only in transversions
-        - 4 pdf with heatmap with cossim for all classes and 4 diff substitutions (A>G, C>T, G>A, T>C)
-
-### 5. Deconvolution of SBS signatures   
-
-
-
+Read our [bioRxiv](https://doi.org/10.1101/2023.12.08.570826) for more details!
 
 
 
