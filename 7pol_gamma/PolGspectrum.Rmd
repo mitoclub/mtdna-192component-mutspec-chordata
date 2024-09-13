@@ -1,0 +1,62 @@
+---
+title: "Analysis of the pol g spectrum"
+author: "Alina G. Mikhailova"
+date: "2023-11-15"
+output:    
+   html_document:
+      toc: true
+      toc_depth: 3
+      toc_float: true
+      number_section: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r echo=FALSE, message=FALSE}
+rm(list=ls(all=TRUE))
+if (!require(ggpubr)) install.packages("ggpubr")
+if (!require(dplyr)) install.packages("dplyr")
+if (!require(tidyr)) install.packages("tidyr")
+if (!require(seqinr)) install.packages('seqinr')
+library(tidyr)
+library(seqinr)
+library(ggpubr)
+library(dplyr)
+```
+
+```{r}
+HSmitogenomeL = read.fasta(file = "../data/polg/HSmito.fasta", seqtype = "DNA")
+mutspec = read.table("../data/polg/PolGspectrum.txt")
+fragL = getFrag(HSmitogenomeL, 10030, 10130)
+content = table(fragL)
+fraccontent =c(content["a"]/sum(content), content["t"]/sum(content), content["g"]/sum(content), content["c"]/sum(content))
+aggsum = aggregate(mutspec$V2, by=list(mutspec$V1), FUN = sum)
+names(aggsum) = c("SubType", "Freq")
+aggsum$NormFreq = 0
+aggsum[aggsum$SubType == "A_G",]$NormFreq = aggsum[aggsum$SubType == "A_G",]$Freq / fraccontent["a"]
+aggsum[aggsum$SubType == "A_C",]$NormFreq = aggsum[aggsum$SubType == "A_C",]$Freq / fraccontent["a"]
+aggsum[aggsum$SubType == "C_T",]$NormFreq = aggsum[aggsum$SubType == "C_T",]$Freq / fraccontent["c"]
+aggsum[aggsum$SubType == "G_A",]$NormFreq = aggsum[aggsum$SubType == "G_A",]$Freq / fraccontent["g"]
+aggsum[aggsum$SubType == "G_T",]$NormFreq = aggsum[aggsum$SubType == "G_T",]$Freq / fraccontent["g"]
+aggsum[aggsum$SubType == "T_C",]$NormFreq = aggsum[aggsum$SubType == "T_C",]$Freq / fraccontent["t"]
+aggsum[aggsum$SubType == "T_G",]$NormFreq = aggsum[aggsum$SubType == "T_G",]$Freq / fraccontent["t"]
+aggsum$NormFreq = aggsum$NormFreq/1000
+
+aggsum$HeavySubType = 0
+aggsum[aggsum$SubType == "A_G",]$HeavySubType = "T_C"
+aggsum[aggsum$SubType == "A_C",]$HeavySubType = "T_G"
+aggsum[aggsum$SubType == "C_T",]$HeavySubType = "G_A"
+aggsum[aggsum$SubType == "G_A",]$HeavySubType = "C_T"
+aggsum[aggsum$SubType == "G_T",]$HeavySubType = "C_A"
+aggsum[aggsum$SubType == "T_C",]$HeavySubType = "A_G"
+aggsum[aggsum$SubType == "T_G",]$HeavySubType = "A_C"
+
+aggsum
+
+#pdf("../pictures/SupplFigXX.pdf")
+ggbarplot(aggsum, x = "HeavySubType", y = "NormFreq", fill = "HeavySubType", color = "HeavySubType",
+   palette = c("#c4c4c4", "#c4c4c4", "#d10000","#d10000", "#c4c4c4", "#c4c4c4", "#c4c4c4"), xlab = "PolG spectrum on heavy chain", ylab = "Frequency")
+#dev.off()
+```

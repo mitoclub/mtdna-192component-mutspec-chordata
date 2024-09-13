@@ -2,6 +2,16 @@
 
 In this project, we use 2,591 chordata species with the CytB mitochondrial gene from the [NeMu pipeline](https://nemu-pipeline.com). We plot a 192-component mutational spectrum to identify the main factors driving mutagenesis in mitochondrial DNA in chordata species.
 
+## Repository details TODO
+
+- `./data/` tables with mutaitonal spectra of chordates and cancers, additional tables.
+- `./notebooks/` all performed analyses on python and R
+- `./pictures/` all picutres obtained during performed analyses
+- `./scripts/` all used scripts for specific data processing during analyses
+- `./ToPaper/` figures used in the paper
+
+See more details in each folder
+
 ## Main authors
 
 * Dmitrii Iliushchenko
@@ -35,17 +45,6 @@ In this project, we use 2,591 chordata species with the CytB mitochondrial gene 
 - cosmicsig_1.1.1 
 - mSigAct_3.0.1
 - ICAMS_3.0.5
-
-## Repository details
-
-- `./data/` tables with mutaitonal spectra of chordates and cancers, additional tables.
-- `./docs/` files includes 
-- `./notebooks/` all performed analyses on python and R
-- `./pictures/` all picutres obtained during performed analyses
-- `./scripts/` all used scripts for specific data processing during analyses
-- `./ToPaper/` figures used in the paper
-
-See more details in each folder
 
 ## Article
 
