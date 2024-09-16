@@ -42,7 +42,7 @@ See more details in each folder
 ## R environment
 
 - dplyr_1.1.4
-- cosmicsig_1.1.1 
+- cosmicsig_1.1.1
 - mSigAct_3.0.1
 - ICAMS_3.0.5
 
