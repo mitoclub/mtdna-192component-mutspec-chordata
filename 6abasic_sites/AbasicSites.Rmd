@@ -1,0 +1,86 @@
+---
+title: "Mitochondial mutational spectrum in abasic sites"
+author: "KP"
+date: "8/Nov/2022"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list=ls(all=TRUE))
+library(knitr)
+# library(tidyverse)
+# library(kableExtra)
+library(ggplot2)
+library(ggrepel)
+options(ggrepel.max.overlaps = Inf)
+
+```
+
+## Background
+<br>
+<br>
+<br>
+
+#### 1. Read data, derived by Victor Shamansky: control region has been deleted, light and heavy strands were counted separetely 
+***
+```{r}
+
+AB = read.table('data/AbasicSitesMtDNAcontext_HLcompare.csv', sep = ';', header=TRUE)
+head(AB)
+```
+<br>
+<br>
+<br> 
+
+#### 2. Trinucleotides affected by abasic sites are similar between heavy and light chain but heavy chain is more damaged
+***
+```{r}
+dim(AB)
+cor.test(AB$avgL,AB$avgH, method = 'spearman')
+plot(AB$avgL,AB$avgH, ylab = 'abasic sites per trinucleotide motifs on heavy strand', xlab = 'abasic sites per trinucleotide motifs on light strand')
+abline(a=0, b=1, col = 'red', lty = 2)
+plot(AB$avgL,AB$avgH,pch = '', ylab = 'abasic sites per trinucleotide motifs on heavy strand', xlab = 'abasic sites per trinucleotide motifs on light strand')
+text(AB$avgL,AB$avgH,AB$origtriH)
+```
+<br>
+<br>
+<br>
+
+#### 2.5. 
+***
+```{r}
+ggplot(AB, aes(avgL, avgH, label = origtriH)) +
+  geom_text_repel(segment.linetype=3, size=7) +
+  geom_point(color = 'red', size=1) +
+  theme_classic(base_size = 32) +
+  ylab('Abasic sites per trinucleotide motifs on heavy strand') +
+  xlab('Abasic sites per trinucleotide motifs on light strand') +
+  geom_abline(slope = 1,
+              intercept = 0,
+              color="blue",
+              linetype = "dashed")
+# png("mtcars.png")
+ggsave("figures/h_vs_l.pdf", device = "pdf", width = 12, height = 12)
+```
+<br>
+<br>
+<br>
+
+#### 3. C is more often abasic
+***
+```{r}
+AB$AbasicSiteOnHeavyStrand = ''
+for (i in 1:nrow(AB))
+{ # i = 1
+AB$AbasicSiteOnHeavyStrand[i] = unlist(strsplit(AB$origtriH[i],''))[2]
+}
+
+wilcox.test(AB[AB$AbasicSiteOnHeavyStrand == 'C',]$avgH, AB[AB$AbasicSiteOnHeavyStrand != 'C',]$avgH)
+boxplot(AB[AB$AbasicSiteOnHeavyStrand == 'C',]$avgH, AB[AB$AbasicSiteOnHeavyStrand != 'C',]$avgH, notch = TRUE, names = c('C','ATG'))
+boxplot(AB[AB$AbasicSiteOnHeavyStrand == 'A',]$avgH, AB[AB$AbasicSiteOnHeavyStrand == 'T',]$avgH, AB[AB$AbasicSiteOnHeavyStrand == 'G',]$avgH, AB[AB$AbasicSiteOnHeavyStrand == 'C',]$avgH, notch = TRUE, names = c('A','T','G','C'))
+
+```
+

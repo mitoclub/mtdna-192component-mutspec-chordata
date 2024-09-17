@@ -27,8 +27,8 @@ library(dplyr)
 ```
 
 ```{r}
-HSmitogenomeL = read.fasta(file = "../data/polg/HSmito.fasta", seqtype = "DNA")
-mutspec = read.table("../data/polg/PolGspectrum.txt")
+HSmitogenomeL = read.fasta(file = "HSmito.fasta", seqtype = "DNA")
+mutspec = read.table("PolGspectrum.txt")
 fragL = getFrag(HSmitogenomeL, 10030, 10130)
 content = table(fragL)
 fraccontent =c(content["a"]/sum(content), content["t"]/sum(content), content["g"]/sum(content), content["c"]/sum(content))
