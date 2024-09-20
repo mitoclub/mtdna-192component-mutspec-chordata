@@ -1,8 +1,11 @@
+from collections import defaultdict
+import json
+
 import numpy as np
 import pandas as pd
 
 from pymutspec.annotation import rev_comp
-from pymutspec.constants import possible_sbs192, possible_sbs12, possible_sbs96
+from pymutspec.constants import possible_sbs192, possible_sbs12, possible_sbs96, possible_codons
 
 
 def _calc_mutspec_class_legacy(df: pd.DataFrame, group_col="Class"):
@@ -77,3 +80,15 @@ sbs2effect = {sbs: ef for ef,sbs_lst in effect2sbs.items() for sbs in sbs_lst}
 sbs2effect["SBS18"] = "ROS"
 sbs2effect["SBS1"] = "C_deamination"
 sbs2effect["SBS5"] = "UNK_clock_like"
+
+
+def read_human_triplet_counts():
+    with open("./data/triplet_counts_GRCh37.json") as fin:
+        _human_counts_raw = json.load(fin)
+        _human_counts_raw = {x: _human_counts_raw[x] for x in possible_codons}
+        human_counts = defaultdict(int)
+        for triplet, n in _human_counts_raw.items():
+            human_counts[triplet.upper()] += n
+        human_counts = dict(human_counts)
+        return human_counts
+    
