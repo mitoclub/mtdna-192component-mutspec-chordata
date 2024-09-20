@@ -24,7 +24,7 @@ options(ggrepel.max.overlaps = Inf)
 <br>
 <br>
 
-#### 1. Read data, derived by Victor Shamansky: control region has been deleted, light and heavy strands were counted separetely 
+#### 1. Read data, derived by VS: control region has been deleted, light and heavy strands were counted separetely 
 ***
 ```{r}
 

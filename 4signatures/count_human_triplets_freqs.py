@@ -5,8 +5,8 @@ from collections import defaultdict
 from Bio import SeqIO
 from Bio.SeqRecord import SeqRecord
 
-PATH_TO_GENOME = "./data/external/human_genome/GCF_000001405.25_GRCh37.p13_genomic.fna"
-PATH_TO_JSON_OUT = "./data/triplet_counts_GRCh37"
+PATH_TO_GENOME = "./data/human_genome/GCF_000001405.25_GRCh37.p13_genomic.fna"
+PATH_TO_JSON_OUT = "./data/triplet_counts_GRCh37.json"
 
 NUCL_SET = set("ACGTacgt")
 

@@ -1,5 +1,5 @@
 
-PATH_TO_DATA = 'data'
+PATH_TO_DATA = 'data/'
 
 
 first = open(PATH_TO_DATA + 'AbasicSitesMtDNAcontext_start_heavy.csv','r')

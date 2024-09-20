@@ -5,7 +5,7 @@ library(mSigAct)
 library(cosmicsig)
 library(dplyr)
 
-path = '../data/decomp/SigProfilerAssignment/input'
+path = './data/SigProfilerAssignment/input'
 samples_names = list.files(path, pattern='_samples.txt', full.names=T)
 samples_names
 
@@ -27,9 +27,9 @@ high_df = high_df[,-1]
 
 final_catalog = cbind(diff_df, high_df, low_df)
 
-write.table(final_catalog, '../data/decomp/mSigAct/input/samples_mSigAct.txt', sep='\t', row.names = F)
+write.table(final_catalog, './data/mSigAct/input/samples_mSigAct.txt', sep='\t', row.names = F)
 
-path_full_catalog = '../data/decomp/mSigAct/input/samples_mSigAct.txt'
+path_full_catalog = './data/mSigAct/input/samples_mSigAct.txt'
 input_catalog <- ICAMS::ReadCatalog(file = path_full_catalog)
 
 
@@ -42,7 +42,7 @@ sigs_to_use <- sigs[, colnames(sigs) %in% sig_use]
 
 ### Proportions are taken from SigProfiler
 
-output_home <- "../data/decomp/mSigAct/output/raw_output/custom_prop"
+output_home <- "./data/mSigAct/output/raw_output/custom_prop"
 
 sig_prop = c(0.01, 0.02, 0.03, 0.03, 0.03, 0.23, 0.31, 0.35)
 names(sig_prop) = colnames(sigs_to_use)
@@ -58,7 +58,7 @@ retval <-
                              mc.cores.per.sample = 4)
 
 ### Take all relatable SBS with 1 prop 
-output_home <- "../data/decomp/mSigAct/output/raw_output/all_relatable_sbs_prop1"
+output_home <- "./data/mSigAct/output/raw_output/all_relatable_sbs_prop1"
 
 
 sigs <- cosmicsig::COSMIC_v3.3$signature$GRCh37$SBS96
@@ -87,7 +87,7 @@ retval <-
 
 ### Proportions from mSigAct with 1 prop
 
-output_home <- "../data/decomp/mSigAct/output/raw_output/custom_from1"
+output_home <- "./data/mSigAct/output/raw_output/custom_from1"
 
 sigs <- cosmicsig::COSMIC_v3.3$signature$GRCh37$SBS96
 

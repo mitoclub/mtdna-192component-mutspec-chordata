@@ -6,7 +6,7 @@ found errors:
 
 from collections import defaultdict
 
-PATH_TO_DATA = 'data'
+PATH_TO_DATA = 'data/'
 path_to_abasic_data = PATH_TO_DATA + '41467_2022_33594_MOESM26_ESM.csv'
 genfilepath = PATH_TO_DATA + 'mm10_ChrM_oneline.fasta'
 
