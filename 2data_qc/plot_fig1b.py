@@ -46,7 +46,7 @@ from sigProfilerPlotting import (
     SPP_TEMPLATES, getylabels, output_results,
 )
 
-
+### function to draw mutspec in COSMIC format
 def make_pickle_file_SBS96(context="SBS96", return_plot_template=False, volume=None, revcc=False):
     if revcc:
         print('revcc')
@@ -687,51 +687,35 @@ def plotSBS96(
 
 
 
-
-spectra = pd.read_csv("./data/new_dataset/MutSpecVertebrates192.csv.gz")
+### Take MutSpec data for all vertebrates
+spectra = pd.read_csv("../1data_derivation/dataset/MutSpecVertebrates192.csv.gz")
 spectra = spectra[spectra.Gene == 'Cytb'] # one gene
 spectra_mean = spectra.groupby('Mut').MutSpec.mean().reset_index()
-spectra_mean['Mut'] = spectra_mean.Mut.apply(rev_comp)
+spectra_mean['Mut'] = spectra_mean.Mut.apply(rev_comp) # translate to heavy chainchain
 
-# d = pd.read_csv("../data/MutSpecALLvert.csv")
 d = spectra_mean
 sample_col = 'Vertebrates average spectrum'
 d.columns = ['MutationType', sample_col]
 d[sample_col] *= 100
-# d[sample_col] = (d[sample_col] * 10000).astype(int)
+
 first_muts = ['C>A', 'C>G', 'C>T', 'T>A', 'A>G', 'T>G',]
 
 d1 = d[d.MutationType.str.slice(2, 5).isin(first_muts)]
 d1.loc[d1.MutationType.str.slice(2,5) == 'A>G', 'MutationType'] = \
     d1[d1.MutationType.str.slice(2,5) == 'A>G'].MutationType.apply(rev_comp)
 
-# ag = d1[d1.MutationType.str.slice(2, 5) == 'A>G']
-# ag['MutationType'] = ag.MutationType.apply(rev_comp)
-
-# d1 = d1[d1.MutationType.str.slice(2, 5) != 'A>G']
-# d1 = pd.concat([d1, ag])
-
-# print(d1[d1.MutationType.str.slice(2, 5) == 'A>G'])
-
-
 d2 = d[~d.MutationType.str.slice(2, 5).isin(first_muts)]
 d2.loc[d2.MutationType.str.slice(2,5) == 'T>C', 'MutationType'] = \
     d2[d2.MutationType.str.slice(2,5) == 'T>C'].MutationType.apply(rev_comp)
 d2['MutationType'] = d2.MutationType.apply(rev_comp)
 
-# print(d1.sum(), d2.sum())
 
-d1.to_csv('/tmp/test_vert1_96.txt', sep='\t', index=False)
-d2.to_csv('/tmp/test_vert2_96.txt', sep='\t', index=False)
-
-matrix_path = '/tmp/test_vert1_96.txt'
-output_path = './'
+output_path = './figures/'
 project = 'vert_1'
-plotSBS96(matrix_path, output_path, project, percentage=True, revcc=False)
+plotSBS96(d1, output_path, project, percentage=True, revcc=False)
 
 
-matrix_path = '/tmp/test_vert2_96.txt'
-output_path = './'
+output_path = './figures/'
 project = 'vert_2'
-plotSBS96(matrix_path, output_path, project, percentage=True, revcc=True)
+plotSBS96(d2, output_path, project, percentage=True, revcc=True)
 
