@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('./4signatures/data/SigProfilerAssignment/output/Assignment_Solution_Activities.txt', sep='\t', index_col=0)
+df = pd.read_csv('./data/SigProfilerAssignment/output/Assignment_Solution_Activities.txt', sep='\t', index_col=0)
 
 # calculate freqs of all SBS in SigProfiller output averaged for all runs
 sbs_priors = df.sum(axis=0)
