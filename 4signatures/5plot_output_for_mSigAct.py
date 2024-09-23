@@ -11,10 +11,10 @@ custom_colors = [
     'chocolate', 'darkgreen', 'dodgerblue', 'gray', 'salmon']
 
 
-
-# total
+# without priors
+# total Ts and Tv
 inpath  = "./data/mSigAct/output/all_relatable_sbs_prop1_Activities.txt"
-outpath = "./data/mSigAct/output/all_relatable_sbs_prop1_Activities.pdf"
+outpath = "./data/mSigAct/output/figures/all_relatable_sbs_prop1_Activities.pdf"
 
 df = pd.read_csv(inpath, sep='\t')
 print(df.shape)
@@ -39,9 +39,10 @@ plotActivity(
 
 
 
+# without priors
 # only Ts
 inpath  = "./data/mSigAct/output/all_relatable_sbs_prop1_Activities.txt"
-outpath = "./data/mSigAct/output/all_relatable_sbs_prop1_Activities_Ts.pdf"
+outpath = "./data/mSigAct/output/figures/all_relatable_sbs_prop1_Activities_Ts.pdf"
 
 df = pd.read_csv(inpath, sep='\t')
 print(df.shape)
@@ -68,12 +69,12 @@ plotActivity(
 
 
 
-### When using some priors
+### When using priors from SigProfiller output
 custom_colors = ['#63d69e', '#fad682', '#fad682', 'tab:purple', 
                  'tab:pink', 'tab:orange', 'lightgray']
 
 inpath  = "./data/mSigAct/output/custom_prop_Activities.txt"
-outpath = "./data/mSigAct/output/custom_prop_Activities.pdf"
+outpath = "./data/mSigAct/output/figures/custom_prop_Activities.pdf"
 
 df = pd.read_csv(inpath, sep='\t')
 df['Set'] = df.Samples.apply(lambda x: x.split('_')[0])
@@ -93,12 +94,12 @@ plotActivity(
 
 
 
-### When using some priors
+### When using priors from first mSigAct output without priors
 custom_colors = ['#63d69e', '#fad682', '#fad682', 'tab:purple', 
                  'tab:pink', 'tab:orange', 'lightgray']
 
 inpath  = "./data/mSigAct/output/custom_from1_Activities.txt"
-outpath = "./data/mSigAct/output/custom_from1_Activities.pdf"
+outpath = "./data/mSigAct/output/figures/custom_from1_Activities.pdf"
 
 df = pd.read_csv(inpath, sep='\t')
 df['Set'] = df.Samples.apply(lambda x: x.split('_')[0])
