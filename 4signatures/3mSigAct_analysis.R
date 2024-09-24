@@ -105,6 +105,6 @@ retval <-
                              output.dir = output_home,
                              max.level = ncol(sigs_to_use) - 1,
                              p.thresh = 0.05 / ncol(sigs_to_use), 
-                             num.parallel.samples = 2, 
-                             mc.cores.per.sample = 8)
+                             num.parallel.samples = 1, 
+                             mc.cores.per.sample = 4)
 
