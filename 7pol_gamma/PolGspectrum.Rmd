@@ -55,7 +55,7 @@ aggsum[aggsum$SubType == "T_G",]$HeavySubType = "A_C"
 
 aggsum
 
-#pdf("../pictures/SupplFigXX.pdf")
+#pdf("./fig.pdf")
 ggbarplot(aggsum, x = "HeavySubType", y = "NormFreq", fill = "HeavySubType", color = "HeavySubType",
    palette = c("#c4c4c4", "#c4c4c4", "#d10000","#d10000", "#c4c4c4", "#c4c4c4", "#c4c4c4"), xlab = "PolG spectrum on heavy chain", ylab = "Frequency")
 #dev.off()
