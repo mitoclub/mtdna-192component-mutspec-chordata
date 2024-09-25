@@ -81,6 +81,7 @@ retval <-
                              sigs.presence.prop = sig_prop,
                              output.dir = output_home,
                              max.level = ncol(sigs_to_use) - 1,
+                             max.subsets = 100000,
                              p.thresh = 0.05 / ncol(sigs_to_use), 
                              num.parallel.samples = 4, 
                              mc.cores.per.sample = 8)
@@ -104,6 +105,7 @@ retval <-
                              sigs.presence.prop = sig_prop,
                              output.dir = output_home,
                              max.level = ncol(sigs_to_use) - 1,
+                             max.subsets = 100000,
                              p.thresh = 0.05 / ncol(sigs_to_use), 
                              num.parallel.samples = 1, 
                              mc.cores.per.sample = 4)
