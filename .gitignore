@@ -145,7 +145,6 @@ data/legacy/counted_codons_cytb.csv
 data/legacy/sequence.gb
 data/legacy/expected_freqs.csv
 data/taxonomy_result.xml
-data/cancer_mutspec.csv
 data/taxonomy_vertebrates.csv
 
 # scripts that not used in final pipline
