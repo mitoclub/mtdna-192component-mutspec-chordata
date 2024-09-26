@@ -2,15 +2,17 @@
 
 ## Raw data
 
-1. [raw mutations](./data/mtDNA_snv_Oct2016.txt)
+1. [cancer mutations](./data/mtDNA_snv_Oct2016.txt)
 2. [reference human mtDNA](./data/NC_012920.1.gb)
 
 ## Scripts
 
 1. [1cancer_analysis.ipynb](./1cancer_analysis.ipynb) - analyse mutations and calculate spectra
-2. [2calculate_asymmetry.py](./2calculate_asymmetry.py) - calculate mtDNA asymmetry based on different genome regions
+2. [2calculate_tbss_specific_spectra.py](./2calculate_tbss_specific_spectra.py) - calculate mtDNA asymmetry based on different genome regions
 
 ## Figures
+
+See `1cancer_analysis.ipynb`
 
 - [Supplementary Fig. S8](./figures/syn_spectrum.pdf)
 - [Supplementary Fig. S11c](./figures/cancer_ChTh.pdf)
@@ -37,4 +39,4 @@ We calculated spectra based on different mutational samples, but used primarily 
 ## References
 
 1. Yuan, Y., Ju, Y.S., Kim, Y. et al. Comprehensive molecular characterization of mitochondrial genomes in human cancers. Nat Genet 52, 342–352 (2020). https://doi.org/10.1038/s41588-019-0557-x
-2. Used Data - https://ibl.mdanderson.org/tcma/download.html
+2. Link to the cancer mutations - https://ibl.mdanderson.org/tcma/download.html

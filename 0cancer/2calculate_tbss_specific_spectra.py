@@ -13,7 +13,7 @@ major_arc_max_pos = 16000
 
 region_size = 5000
 print("Split mutations dataset based on genome site (only major arc):")
-print(f"Low TSSS region: {major_arc_min_pos}-{major_arc_min_pos+region_size}"
+print(f"Low TSSS region: {major_arc_min_pos}-{major_arc_min_pos+region_size}\n"
       f"High TSSS region: {major_arc_max_pos-region_size}-{major_arc_max_pos}\n")
 
 # Prepare 2 samples of mutations: LOW and HIGH
@@ -93,10 +93,10 @@ ms_high_tsss_all = calculate_mutspec(obs_high_tsss_all, exp_high_tsss_all_freqs,
 ms_high_tsss_syn = calculate_mutspec(obs_high_tsss_syn, exp_high_tsss_syn_freqs, use_context=True)
 
 # Save spectra
-ms_low_tsss_all.sort_values("Mut").to_csv("./data/asymmetry/ms_low_tsss_all.csv", index=False)
-ms_low_tsss_syn.sort_values("Mut").to_csv("./data/asymmetry/ms_low_tsss_syn.csv", index=False)
-ms_high_tsss_all.sort_values("Mut").to_csv("./data/asymmetry/ms_high_tsss_all.csv", index=False)
-ms_high_tsss_syn.sort_values("Mut").to_csv("./data/asymmetry/ms_high_tsss_syn.csv", index=False)
+ms_low_tsss_all.sort_values("Mut").to_csv("./data/for_asymmetry/ms_low_tsss_all.csv", index=False)
+ms_low_tsss_syn.sort_values("Mut").to_csv("./data/for_asymmetry/ms_low_tsss_syn.csv", index=False)
+ms_high_tsss_all.sort_values("Mut").to_csv("./data/for_asymmetry/ms_high_tsss_all.csv", index=False)
+ms_high_tsss_syn.sort_values("Mut").to_csv("./data/for_asymmetry/ms_high_tsss_syn.csv", index=False)
 
 
 print("\nPrint number of NaN values in final spectra:")
