@@ -1,3 +1,4 @@
+#!/usr/bin/env
 rm(list=ls(all=TRUE))
 
 library(ICAMS)
@@ -92,11 +93,11 @@ output_home <- "./data/mSigAct/output/raw_output/custom_from1"
 
 sigs <- cosmicsig::COSMIC_v3.3$signature$GRCh37$SBS96
 
-sig_use= c('SBS12', 'SBS23', 'SBS30', 'SBS2', 'SBS26', 'SBS21', 'SBS42')
+sig_use= c('SBS12', 'SBS30', 'SBS23', 'SBS26', 'SBS2', 'SBS42', 'SBS21')
 
 sigs_to_use <- sigs[, colnames(sigs) %in% sig_use]
 
-sig_prop = c(0.365998, 0.272763, 0.228357, 0.038582, 0.030519, 0.013383, 0.011983)
+sig_prop = c(0.319994, 0.292430, 0.197766, 0.052957, 0.033872, 0.019849, 0.017117)
 names(sig_prop) = colnames(sigs_to_use)
 
 retval <-
@@ -108,5 +109,5 @@ retval <-
                              max.subsets = 100000,
                              p.thresh = 0.05 / ncol(sigs_to_use), 
                              num.parallel.samples = 1, 
-                             mc.cores.per.sample = 4)
+                             mc.cores.per.sample = 24)
 
