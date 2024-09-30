@@ -18,10 +18,6 @@ The initial data used in this analysis can be found in the [192-comp mutational 
 
 - [Plotting mutational spectrum in COSMIC format](./plot_fig1b.py) is used to plot two pieces of Figure 1b, which contain mutational spectra in COSMIC format for all vertebrate species
 
-### Main figures
-
-- [Figure 1b upper part](./figures/SBS_96_plots_vert_1.pdf) Upper part of the Figure 1B
-- [Figure 1b lower part](./figures/SBS_96_plots_vert_2.pdf) Lower part of the Figure 1B
 
 ## Used Data
 

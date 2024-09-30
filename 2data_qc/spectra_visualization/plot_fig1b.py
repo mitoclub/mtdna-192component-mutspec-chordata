@@ -688,7 +688,7 @@ def plotSBS96(
 
 
 ### Take MutSpec data for all vertebrates
-spectra = pd.read_csv("../1data_derivation/dataset/MutSpecVertebrates192.csv.gz")
+spectra = pd.read_csv("../../1data_derivation/dataset/MutSpecVertebrates192.csv.gz")
 spectra = spectra[spectra.Gene == 'Cytb'] # one gene
 spectra_mean = spectra.groupby('Mut').MutSpec.mean().reset_index()
 spectra_mean['Mut'] = spectra_mean.Mut.apply(rev_comp) # translate to heavy chainchain
@@ -710,12 +710,12 @@ d2.loc[d2.MutationType.str.slice(2,5) == 'T>C', 'MutationType'] = \
 d2['MutationType'] = d2.MutationType.apply(rev_comp)
 
 
-output_path = './figures/'
+output_path = './'
 project = 'vert_1'
 plotSBS96(d1, output_path, project, percentage=True, revcc=False)
 
 
-output_path = './figures/'
+output_path = './'
 project = 'vert_2'
 plotSBS96(d2, output_path, project, percentage=True, revcc=True)
 
