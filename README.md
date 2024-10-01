@@ -22,7 +22,7 @@ See more details in each folder
 ## Used software
 
 - Python 3.9+
-- R 4.4.0
+- R 4.4.1
 
 ## Python environment
 
@@ -45,6 +45,7 @@ See more details in each folder
 - cosmicsig_1.1.1
 - mSigAct_3.0.1
 - ICAMS_3.0.5
+- Biostrings_2.72.1
 
 ## Article
 
