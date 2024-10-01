@@ -1,1 +1,5 @@
-mitos~=2.1.9
+mitos==2.1.9
+biopython==1.73
+pandas==2.2.3
+matplotlib==3.9.2
+seaborn==0.13.2
