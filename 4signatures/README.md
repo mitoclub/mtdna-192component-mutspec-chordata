@@ -1,5 +1,7 @@
 # Decomposition of mtDNA spectra to COSMIC signatures
 
+## Workflow 
+
 1. Need to renormalize chordates classes spectra to human genome (see details in article methods) - [py script](./0count_human_triplets_freqs.py)
 2. Run SigProfilerAssignment cosmic_fit function to run signatures assignment, aggregate results and plot figures - [ipy notebook](./1signatures_analysis_sigpro.ipynb)
 
@@ -17,5 +19,13 @@ We executed mSigAct in several ways to get stable results:
 6. Plot figures for mSigAct output - [py script](./5plot_output_for_mSigAct.py)
 
 
+## Scripts and notebooks
+
+TODO
+
 - [plotActivity.py](./plotActivity.py) - visualization of barplots in the SigProfiler way
 - [utils.py](./utils.py) - some functions for data processing
+
+## Materials
+
+TODO
