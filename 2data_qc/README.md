@@ -1,25 +1,14 @@
-# Quality Control and Plotting of Mutational Spectra
+# Exploration of Mutational Spectra Dataset
 
-This part of the project focuses on checking the quality of the obtained mutational spectrum for vertebrates. It includes plotting mutational spectra for all vertebrate species for the CytB, CO1, CO3, and ND2 genes. 
+This part of the project focuses on **checking the quality** and **exploration** of the obtained mutational spectrum for vertebrates.
 
 The initial data used in this analysis can be found in the [192-comp mutational spectra data](../1data_derivation/dataset/MutSpecVertebrates192.csv.gz).
 
 ## Content
 
-### Notebooks
-
-- [Plotting mutaional spectra](./spectra_visualization/plot_mutspec.ipynb) is used for drawing mutational spectra for all vertebrate species for the genes CO1, CO3, ND2, and CytB, as well as for drawing 192 component mutational spectra for different vertebrata classes and cancers
-- [Location in CytB](./cytb_location/cytb_location.ipynb) is used to check the location of the CytB gene in different species
-- [Check selection effect](./estimate_selection_effect/check_selection_effect.ipynb) TODO Bogdan
-- [Mutational Spectrum EDA](./explore_mutations/dataset_EDA.ipynb) is used to look at EDA of the mutational spectrum
-- [Gene Code Bias](./gencode_bias.ipynb) TODO BOGDAN !!!
-
-### Scripts
-
-- [Plotting mutational spectrum in COSMIC format](./spectra_visualization/plot_fig1b.py) is used to plot two pieces of Figure 1b, which contain mutational spectra in COSMIC format for all vertebrate species
-
-
-## Used Data
-
-- [192-comp mutational spectra data](../1data_derivation/dataset/MutSpecVertebrates192.csv.gz) contains species-specific mutational spectra for all available vertebrate species, covering the four genes: CO1, CO3, ND2, and CytB
-- [] TODO Bogdan
+- [Plotting mutaional spectra](./spectra_visualization/) - drawing the mutational spectra for all vertebrate species for the genes CO1, CO3, ND2, and CytB, as well as for drawing spectra for 5 vertebrata classes separately
+- [Mutational Spectrum exploration](./explore_mutations/) - explorary data analysis (EDA) of the mutational spectrum dataset
+- [Location of CytB gene in mtDNA](./cytb_location/) - checking the CytB gene location in available chordates species to prove the similar mutagenic condition of Cytb during the replication (different genes stay different time in single-strand condition; is this feature common among chordates species mtDNA?)
+- [Comparison of species-specific spectra](./genes_cls_exploration/) - compare Cytb mutaitonal spectra of chordates species and compare their expected mutations counts
+- [Check spectrum bias based on genetic code](./syn_spectrum_bias_based_on_gencode.ipynb) - some mutations contexts cannot be observed in synonymous mutational spectrum. We discover this gencode feature in this notebook.
+- [Estimation of synonymous sites neutrality](./estimate_selection_effect/) - To assess the neutrality of synonymous sites in mtDNA, we compared expected substitutions counts (192-component vectors) in different sites samples according to estimated site variability rate for each species.
