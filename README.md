@@ -2,15 +2,21 @@
 
 In this project, we use 2,591 CytB sequences of chordata species from the [NeMu pipeline](https://nemu-pipeline.com). We derive and analyse a 192-component mutational spectra to identify the main factors driving mtDNA mutagenesis in chordata species.
 
-## Repository details TODO
+## Repository details
 
-- `./data/` tables with mutaitonal spectra of chordates and cancers, additional tables.
-- `./notebooks/` all performed analyses on python and R
-- `./pictures/` all picutres obtained during performed analyses
-- `./scripts/` all used scripts for specific data processing during analyses
-- `./ToPaper/` figures used in the paper
+We splitted our data collection and analyses steps to subdirectories:
 
-See more details in each folder
+- [Cancer data preparation](./0cancer/)
+- [Mutational spectra derivation](./1data_derivation/)
+- [Data exploration](./2data_qc/)
+- [Chordates classes comparison](./3compare_classes/)
+- [Signatures assigment (COSMIC)](./4signatures/)
+- [Spectrum asymmetry analysis](./5asymmetry/)
+- [AP sites context analysis](./6abasic_sites/)
+
+[Main figures for the article](./main_figures/)
+
+See more details in READMEs placed in subfolders
 
 ## Used software
 
@@ -21,6 +27,8 @@ See more details in each folder
 ## Environment for analyses
 
 ### Python packages
+
+see [requirements.txt](./requirements.txt)
 
 - PyMutSpec-0.0.8
 - statsmodels~=0.14.0
