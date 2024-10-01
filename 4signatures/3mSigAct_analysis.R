@@ -87,6 +87,7 @@ retval <-
                              num.parallel.samples = 4, 
                              mc.cores.per.sample = 8)
 
+### Before running this part go to ./4aggregate_mSigAct_outputs.ipynb script and calculate proportions from mSigAct 1 prop
 ### Proportions from mSigAct with 1 prop
 
 output_home <- "./data/mSigAct/output/raw_output/custom_from1"
