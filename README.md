@@ -8,7 +8,7 @@ We splitted our data collection and analyses steps to subdirectories:
 
 - [Cancer data preparation](./0cancer/)
 - [Mutational spectra derivation](./1data_derivation/)
-- [Data exploration](./2data_qc/)
+- [Data exploration](./2data_exploration/)
 - [Chordates classes comparison](./3compare_classes/)
 - [Signatures assigment (COSMIC)](./4signatures/)
 - [Spectrum asymmetry analysis](./5asymmetry/)
