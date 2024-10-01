@@ -15,12 +15,9 @@
 See `1cancer_analysis.ipynb`
 
 - [Supplementary Fig. S8](./figures/syn_spectrum.pdf)
-- [Supplementary Fig. S11c](./figures/cancer_ChTh.pdf)
-- [Supplementary Fig. S11d](./figures/cancer_AhGh.pdf)
-- [Supplementary Fig. S20a](./figures/patients_mut_num.pdf)
-- [Supplementary Fig. S20b](./figures/cancer_samples_nmut.png)
-- [Supplementary Fig. S20c](./figures/human_cancer_spectra_syn_samples_umap.png)
-- [Supplementary Fig. S21b](./figures/nmuts_classes_cancer.png)
+- Supplementary Fig. S11 [c](./figures/cancer_ChTh.pdf) [d](./figures/cancer_AhGh.pdf)
+- Supplementary Fig. S19 [a](./figures/patients_mut_num.pdf) [b](./figures/cancer_samples_nmut.png) [c](./figures/human_cancer_spectra_syn_samples_umap.png)
+- [Supplementary Fig. S20b](./figures/nmuts_classes_cancer.png)
 
 ## Calculated mutational spectra
 
