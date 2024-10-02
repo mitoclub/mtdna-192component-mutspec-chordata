@@ -1,22 +1,36 @@
 # Deciphering the Foundations of Mitochondrial Mutational Spectra: Replication-Driven and Damage-Induced Signatures Across Chordate Classes
 
-In this project, we use 2,591 chordata species with the CytB mitochondrial gene from the [NeMu pipeline](https://nemu-pipeline.com). We plot a 192-component mutational spectrum to identify the main factors driving mutagenesis in mitochondrial DNA in chordata species.
+In this project, we use 2,591 CytB sequences of chordata species from the [NeMu pipeline](https://nemu-pipeline.com). We derive and analyse a 192-component mutational spectra to identify the main factors driving mtDNA mutagenesis in chordata species.
 
-## Main authors
+## Repository details
 
-* Dmitrii Iliushchenko
-* Bogdan Efimenko
-* Alina G. Mikhailova
-* Konstantin Popadin
+We splitted our data collection and analyses steps to subdirectories:
+
+- [Cancer data preparation](./0cancer/)
+- [Mutational spectra derivation](./1data_derivation/)
+- [Data exploration](./2data_exploration/)
+- [Chordates classes comparison](./3compare_classes/)
+- [Signatures assigment (COSMIC)](./4signatures/)
+- [Spectrum asymmetry analysis](./5asymmetry/)
+- [AP sites context analysis](./6abasic_sites/)
+
+[Main figures for the article](./main_figures/)
+
+See more details in READMEs placed in subfolders
 
 ## Used software
 
 - Python 3.9+
-- R 4.4.0
+- R 4.4.1
+- [NeMu-pipeline](https://nemu-pipeline.com/)
 
-## Python environment
+## Environment for analyses
 
-- [PyMutSpec-0.0.8](https://pypi.org/project/PyMutSpec/)
+### Python packages
+
+see [requirements.txt](./requirements.txt)
+
+- PyMutSpec-0.0.8
 - statsmodels~=0.14.0
 - scipy~=1.10.1
 - biopython~=1.81
@@ -29,27 +43,18 @@ In this project, we use 2,591 chordata species with the CytB mitochondrial gene 
 - SigProfilerAssignment~=0.1.6
 - umap_learn~=0.5.6
 
-## R environment
+### R packages
 
 - dplyr_1.1.4
-- cosmicsig_1.1.1 
+- cosmicsig_1.1.1
 - mSigAct_3.0.1
 - ICAMS_3.0.5
-
-## Repository details
-
-- `./data/` tables with mutaitonal spectra of chordates and cancers, additional tables.
-- `./docs/` files includes 
-- `./notebooks/` all performed analyses on python and R
-- `./pictures/` all picutres obtained during performed analyses
-- `./scripts/` all used scripts for specific data processing during analyses
-- `./ToPaper/` figures used in the paper
-
-See more details in each folder
+- Biostrings_2.72.1
 
 ## Article
 
-Read our [bioRxiv](https://doi.org/10.1101/2023.12.08.570826) for more details!
+Mitochondrial mutation spectrum in Chordates: damage versus replication signatures, causes, and dynamics
+Dmitrii Iliushchenko, Bogdan Efimenko, Alina G. Mikhailova, Victor Shamanskiy, Murat K. Saparbaev, Ilya Mazunin, Dmitrii Knorre, Wolfram S. Kunz, Philipp Kapranov, Stepan Denisov, Jacques Fellay, Konstantin Khrapko, Konstantin Gunbin, Konstantin Popadin
 
-
+**bioRxiv** 2023.12.08.570826; doi: https://doi.org/10.1101/2023.12.08.570826 
 
