@@ -29,7 +29,11 @@ We don't share too big external and raw files
 
 ## Materials for the article
 
+Figures:
 - [Supplementary Fig. S17](./figures/selected_genes_length.png)
 - Supplementary Fig. S18 [a](./figures/mut_cnt_per_species.png) [b](./figures/tree_branch_mut_cnt.png) [c](./figures/ts_cnt_in_genes.png) [d](./figures/ts_frac_filter.png)
 
+Tables:
 - [Supplementary Table S1](./data/species_cnt_filtered.csv)
+- [Supplementary Table S8](./dataset/info.csv)
+- [Supplementary Table S9](./data/species_cnt_raw.csv)
