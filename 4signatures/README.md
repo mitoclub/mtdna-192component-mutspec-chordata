@@ -21,11 +21,19 @@ We executed mSigAct in several ways to get stable results:
 
 ## Scripts and notebooks
 
-TODO
-
+- [0count_human_triplets_freqs.py](./0count_human_triplets_freqs.py) - renormalize chordates classes spectra to human genome
+- [./1signatures_analysis_sigpro.ipynb](./1signatures_analysis_sigpro.ipynb) - run SigProfiletAssignment analysis
+- [2prepare_priors_for_mSigAct.py](./2prepare_priors_for_mSigAct.py) - prepare SigProfiler outputs for mSigAct running 
+- [3mSigAct_analysis.R](./3mSigAct_analysis.R) - run mSigAct on renormolized spectra in three ways
+- [4aggregate_mSigAct_outputs.ipynb](./4aggregate_mSigAct_outputs.ipynb) - calculate prop of the SBS from prop1 in mSigAct and then make table of all test from mSigAct
+- [5plot_output_for_mSigAct.py](./5plot_output_for_mSigAct.py) - draw mSigAct output in COSMIC format
 - [plotActivity.py](./plotActivity.py) - visualization of barplots in the SigProfiler way
 - [utils.py](./utils.py) - some functions for data processing
 
-## Materials
+## Used Data
 
-TODO
+- [192-comp mutational spectra data](../1data_derivation/dataset/MutSpecVertebrates192.csv.gz)
+
+### External Data
+
+- [Human Genome](./data/human_genome/download_human_genome.sh) - bash script to download human genome
