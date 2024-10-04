@@ -1,6 +1,6 @@
 # Scripts and notebooks for analysis of abasic sites in *Mus musculus* mtDNA
 
-Fig. 3b in the paper
+[Fig. 3b](./figures/) in the paper
 
 ## Scripts
 

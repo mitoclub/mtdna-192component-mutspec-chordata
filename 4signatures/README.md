@@ -30,6 +30,18 @@ We executed mSigAct in several ways to get stable results:
 - [plotActivity.py](./plotActivity.py) - visualization of barplots in the SigProfiler way
 - [utils.py](./utils.py) - some functions for data processing
 
+## Materials in the article
+
+**Figures:**
+
+- Figure 3c [1](./data/SigProfilerAssignment/output/only_Ts.pdf) and [2](./data/mSigAct/output/figures/all_relatable_sbs_prop1_Activities_Ts.pdf)
+- Supplementary Figure 12 [a](./data/SigProfilerAssignment/output/total.pdf) and [b](./data/mSigAct/output/figures/all_relatable_sbs_prop1_Activities.pdf)
+
+**Tables:**
+
+- [Supplementary Table 5](./data/SigProfilerAssignment/output/Solution_Stats.txt)
+- [Supplementary Table 6](./data/mSigAct/output/Distances_mSigAct.csv)
+
 ## Used Data
 
 - [192-comp mutational spectra data](../1data_derivation/dataset/MutSpecVertebrates192.csv.gz)
