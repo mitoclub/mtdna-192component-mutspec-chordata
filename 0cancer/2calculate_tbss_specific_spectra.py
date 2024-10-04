@@ -4,6 +4,8 @@ from pymutspec.annotation import calculate_mutspec, CodonAnnotation
 
 coda = CodonAnnotation(2)
 
+outdir = './data/for_asymmetry'
+
 # Load preprocessed mutations dataset and site-specific reference annotation
 mutations = pd.read_csv("./data/mutations.csv")
 Ref = pd.read_csv("./data/ref_annot.csv")
@@ -11,7 +13,10 @@ Ref = pd.read_csv("./data/ref_annot.csv")
 major_arc_min_pos = 5800
 major_arc_max_pos = 16000
 
+# # v1
 region_size = 5000
+# v2
+# region_size = 2500
 print("Split mutations dataset based on genome site (only major arc):")
 print(f"Low TSSS region: {major_arc_min_pos}-{major_arc_min_pos+region_size}\n"
       f"High TSSS region: {major_arc_max_pos-region_size}-{major_arc_max_pos}\n")
@@ -93,10 +98,10 @@ ms_high_tsss_all = calculate_mutspec(obs_high_tsss_all, exp_high_tsss_all_freqs,
 ms_high_tsss_syn = calculate_mutspec(obs_high_tsss_syn, exp_high_tsss_syn_freqs, use_context=True)
 
 # Save spectra
-ms_low_tsss_all.sort_values("Mut").to_csv("./data/for_asymmetry/ms_low_tsss_all.csv", index=False)
-ms_low_tsss_syn.sort_values("Mut").to_csv("./data/for_asymmetry/ms_low_tsss_syn.csv", index=False)
-ms_high_tsss_all.sort_values("Mut").to_csv("./data/for_asymmetry/ms_high_tsss_all.csv", index=False)
-ms_high_tsss_syn.sort_values("Mut").to_csv("./data/for_asymmetry/ms_high_tsss_syn.csv", index=False)
+ms_low_tsss_all.sort_values("Mut").to_csv(f"{outdir}/ms_low_tsss_all.csv", index=False)
+ms_low_tsss_syn.sort_values("Mut").to_csv(f"{outdir}/ms_low_tsss_syn.csv", index=False)
+ms_high_tsss_all.sort_values("Mut").to_csv(f"{outdir}/ms_high_tsss_all.csv", index=False)
+ms_high_tsss_syn.sort_values("Mut").to_csv(f"{outdir}/ms_high_tsss_syn.csv", index=False)
 
 
 print("\nPrint number of NaN values in final spectra:")
