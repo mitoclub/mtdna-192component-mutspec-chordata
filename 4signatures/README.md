@@ -39,8 +39,8 @@ We executed mSigAct in several ways to get stable results:
 
 **Tables:**
 
-- [Supplementary Table 5](./data/SigProfilerAssignment/output/Solution_Stats.txt)
-- [Supplementary Table 6](./data/mSigAct/output/Distances_mSigAct.csv)
+- [Supplementary Table 6](./data/SigProfilerAssignment/output/Solution_Stats.txt)
+- [Supplementary Table 7](./data/mSigAct/output/Distances_mSigAct.csv)
 
 ## Used Data
 
