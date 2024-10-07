@@ -22,7 +22,7 @@ All steps are performed in [Asymmetry analysis notebook](./asymmetry_mutspec.csv
 
 ## Final dataset
 
-- [Asymmetry Table of mtDNA with T- and R- nuclear asymmetry](./asymmetry_mutspec.csv) - Supplementray Table S7
+- [Asymmetry Table of mtDNA with T- and R- nuclear asymmetry](./asymmetry_mutspec.csv) - Supplementray Table S8
 
 ## Figures 
 
