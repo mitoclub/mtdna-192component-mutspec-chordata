@@ -12,3 +12,12 @@ The initial data used in this analysis can be found in the [192-comp mutational 
 - [Comparison of species-specific spectra](./genes_cls_exploration/) - compare Cytb mutaitonal spectra of chordates species and compare their expected mutations counts
 - [Check spectrum bias based on genetic code](./syn_spectrum_bias_based_on_gencode.ipynb) - some mutations contexts cannot be observed in synonymous mutational spectrum. We discover this gencode feature in this notebook.
 - [Estimation of synonymous sites neutrality](./estimate_selection_effect/) - To assess the neutrality of synonymous sites in mtDNA, we compared expected substitutions counts (192-component vectors) in different sites samples according to estimated site variability rate for each species.
+
+## Main Files 
+
+- [Class-specific spectra](./spectra_visualization/ClassesSpectraCytb.csv) - Supplementary Table S2, class specific mtDNA mutational spectra for each class and gene 
+
+## Main Figures
+
+- [mtDNA 12-comp Mutational Spectrum for CytB](./spectra_visualization/MutSpec12VertCytb.pdf) - 12-component mutational spectra fig 1a.
+- mtDNA Mutational Spectrum for CytB in COSMIC format [upper part](./spectra_visualization/SBS_96_plots_vert_1.pdf) and [bottom part](./spectra_visualization/SBS_96_plots_vert_2.pdf) - Two parts of mtDNA mutational spectrum in COSMIC format for figure 1b 
