@@ -35,5 +35,5 @@ Figures:
 
 Tables:
 - [Supplementary Table S1](./data/species_cnt_filtered.csv)
-- [Supplementary Table S8](./dataset/info.csv)
-- [Supplementary Table S9](./data/species_cnt_raw.csv)
+- [Supplementary Table S9](./dataset/info.csv)
+- [Supplementary Table S10](./data/species_cnt_raw.csv)
