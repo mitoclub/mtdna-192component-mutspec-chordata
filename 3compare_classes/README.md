@@ -6,7 +6,7 @@ All steps are performed in [Similarity analysis notebook](./similarity_jack.ipyn
 
 1. We conducted pairwise comparisons of mutational spectra at the species-specific level within and between classes, considering all possible combinations
 
-We randomly take 50 species of each class in the pair, calculate MS for each class in pair and calculate cosine similarity in tyhis pair. We have done this process 1000 times for each unique pair. In cancer case, we take 50% of all pacient cancer data 50 instead of 50 species due to low number of mutations in each patient
+We randomly take 50 species of each class in the pair, calculate MS for each class in pair and calculate cosine similarity in the pair. We have done this process 1000 times for each unique pair. In cancer case, we take 50% of all pacient cancer data 50 instead of 50 species due to low number of mutations in each patient
 
 2. Draw matrix plots of similarity analysis, where in each cell we have three numbers: Q1, Q2, Q3 from 1000 pairwise comparisons in combination 
 
