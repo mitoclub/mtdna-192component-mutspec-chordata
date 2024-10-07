@@ -21,7 +21,7 @@ See `1cancer_analysis.ipynb`
 
 ## Calculated mutational spectra
 
-Mutaional spectra of human cancer mtDNA is availavle [here](./data/cancer_mutspec.csv)
+Mutaional spectra of human cancer mtDNA is available [here](./data/cancer_mutspec.csv)
 
 We used it to compare with chordata classes spectra.
 
