@@ -15,8 +15,8 @@ The initial data used in this analysis can be found in the [192-comp mutational 
 
 ## Main Files 
 
-- [Class-specific spectra](./spectra_visualization/ClassesSpectraCytb.csv) - Supplementary Table S2, class specific mtDNA mutational spectra for each class and gene 
-
+- [Class-specific spectra](./spectra_visualization/ClassesSpectraCytb.csv) - Supplementary Table S5, class specific mtDNA mutational spectra for each class and gene 
+- [Average expected substitutions counts](./average_class_exp_freqs.csv) - Supplementary Table S4
 ## Main Figures
 
 - [mtDNA 12-comp Mutational Spectrum for CytB](./spectra_visualization/MutSpec12VertCytb.pdf) - 12-component mutational spectra fig 1a.

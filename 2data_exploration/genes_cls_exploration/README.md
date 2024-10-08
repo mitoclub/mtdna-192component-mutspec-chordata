@@ -6,7 +6,7 @@
 - [Supplementary Fig. S5](./pca_exp_all_genes.png)
 - Supplementary Fig. S6 [a](./pca_exp_Cytb.png) [b](./pca_exp_ND2.png) [c](./pca_exp_CO1.png) [d](./pca_exp_CO3.png)
 
-- [Supplementary Table S5](./average_class_exp_freqs.csv) - Average expected substitutions counts (used to adjust mutaiton counts values in spectra calculation)
+- [Supplementary Table S4](./average_class_exp_freqs.csv) - Average expected substitutions counts (used to adjust mutaiton counts values in spectra calculation)
 
 ## [2class_homogenity.ipynb](./2class_homogenity.ipynb)
 
