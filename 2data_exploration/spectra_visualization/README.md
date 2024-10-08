@@ -17,5 +17,5 @@ Fig. 1 [a](./MutSpec12VertCytb.pdf) [c](./plot_fig1b.py)
 
 Supplementary Fig. S11 [a](./VertCytbChTh.pdf) [b](./VertCytbAhGh.pdf)
 
-[Supplementary Table 2](./ClassesSpectraCytb.csv)
+[Supplementary Table 5](./ClassesSpectraCytb.csv)
 
