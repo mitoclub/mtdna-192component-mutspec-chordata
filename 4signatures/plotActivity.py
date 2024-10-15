@@ -50,7 +50,7 @@ colors = ['tab:pink',
 
 color_code = pd.DataFrame(np.array([['SBS1', '#acf2d0'],
        ['SBS5', '#63d69e'],
-       ['SBS2', '#f8b6b3'],
+       ['SBS2', '#0d4de4'],
        ['SBS13', '#f17fb2'],
        ['SBS3', '#c4abc4'],
        ['SBS4', '#bcf2f5'],
@@ -65,13 +65,17 @@ color_code = pd.DataFrame(np.array([['SBS1', '#acf2d0'],
        ['SBS17a', '#d9f7b0'],
        ['SBS17b', '#8cc63f'],
        ['SBS40', '#c4c4f5'],
-       ['SBS6', '#faf1dc'],
        ['SBS14', '#faecca'],
        ['SBS15', '#fcebc2'],
        ['SBS20', '#fae4af'],
        ['SBS21', '#fae1a5'],
-       ['SBS26', '#fcde97'],
-       ['SBS44', '#fad682']], dtype=object),columns=['signature', 'color'])
+       ['SBS26', '#c3c3c3'], 
+       ['SBS44', '#707070'], 
+       ['SBS6', '#919191'], 
+       ['SBS30', '#ff0000'], 
+       ['SBS12', '#bf0d0d'],
+       ['SBS23', '#e61677']
+       ], dtype=object),columns=['signature', 'color'])
 
 artifacts_sigs = pd.DataFrame(np.array([['SBS27', '#C8C8C8'],
        ['SBS43', '#C0C0C0'],
@@ -195,19 +199,19 @@ def plotActivity(
 
 
 def main():
-    custom_colors = [
-        '#acf2d0', 
-        '#63d69e', 
-        '#f8b6b3', 
-        '#d9f7b0', 
-        '#fae1a5', 
-        '#fad682', 
-        'tab:pink', 
-        'tab:orange', 
-        'tab:olive', 
-        'tab:purple', 
-        '#7852d9',
-    ]
+    #custom_colors = [
+    #    '#acf2d0', 
+    #    '#63d69e', 
+    #    '#f8b6b3', 
+    #    '#d9f7b0', 
+    #    '#fae1a5', 
+    #    '#fad682', 
+    #    'tab:pink', 
+    #    'tab:orange', 
+    #    'tab:olive', 
+    #    'tab:purple', 
+    #    '#7852d9',
+    #]
     lbl = "full"
     inpath = "./data/decomp/{}_Assignment_Solution_Activities.txt"
     outpath = "./pictures/decomp/{}.pdf"
@@ -216,7 +220,7 @@ def main():
         bin_size=30, 
         custom_colors=custom_colors,
         delimiter_step=10, delimiter_size=3,
-        rename=True,
+        rename=True
     )
     # for lbl in ["low", "high", "high_minus_low"]:
     #     plotActivity(
