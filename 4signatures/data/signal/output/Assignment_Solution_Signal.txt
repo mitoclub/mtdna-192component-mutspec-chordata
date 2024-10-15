@@ -1,0 +1,31 @@
+Samples	Unassigned	ΔMSH6	ΔPMS2	ΔRNF168	ΔUNG
+high_Actinopteri__Ts	0	0	38	0	61
+high_Actinopteri__Ts & Tv	5	0	36	0	57
+low_Actinopteri__Ts	0	0	69	0	30
+low_Actinopteri__Ts & Tv	2	0	58	14	24
+diff_Actinopteri__Ts	10	0	0	0	89
+diff_Actinopteri__Ts & Tv	26	0	0	0	73
+high_Amphibia__Ts	0	0	35	0	64
+high_Amphibia__Ts & Tv	9	0	32	0	58
+low_Amphibia__Ts	0	0	46	0	53
+low_Amphibia__Ts & Tv	6	0	39	11	42
+diff_Amphibia__Ts	12	0	17	0	70
+diff_Amphibia__Ts & Tv	2	29	0	11	56
+high_Lepidosauria__Ts	0	0	40	0	59
+high_Lepidosauria__Ts & Tv	3	0	40	0	56
+low_Lepidosauria__Ts	0	0	55	0	44
+low_Lepidosauria__Ts & Tv	8	0	44	12	34
+diff_Lepidosauria__Ts	0	0	34	0	65
+diff_Lepidosauria__Ts & Tv	16	0	26	0	56
+high_Mammalia__Ts	0	0	49	0	50
+high_Mammalia__Ts & Tv	2	0	48	0	48
+low_Mammalia__Ts	0	0	44	0	55
+low_Mammalia__Ts & Tv	20	0	34	0	44
+diff_Mammalia__Ts	0	0	51	0	48
+diff_Mammalia__Ts & Tv	4	0	50	0	45
+high_Aves__Ts	0	0	60	0	39
+high_Aves__Ts & Tv	0	0	61	0	38
+low_Aves__Ts	0	0	58	0	41
+low_Aves__Ts & Tv	12	0	50	0	37
+diff_Aves__Ts	0	0	61	0	38
+diff_Aves__Ts & Tv	0	0	61	0	37

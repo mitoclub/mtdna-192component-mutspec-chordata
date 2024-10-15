@@ -1,0 +1,16 @@
+Samples	Unassigned	ΔMSH6	ΔPMS2	ΔRNF168	ΔUNG
+high-Actinopteri	0	0	38	0	61
+low-Actinopteri	0	0	69	0	30
+diff-Actinopteri	10	0	0	0	89
+high-Amphibia	0	0	35	0	64
+low-Amphibia	0	0	46	0	53
+diff-Amphibia	12	0	17	0	70
+high-Lepidosauria	0	0	40	0	59
+low-Lepidosauria	0	0	55	0	44
+diff-Lepidosauria	0	0	34	0	65
+high-Mammalia	0	0	49	0	50
+low-Mammalia	0	0	44	0	55
+diff-Mammalia	0	0	51	0	48
+high-Aves	0	0	60	0	39
+low-Aves	0	0	58	0	41
+diff-Aves	0	0	61	0	38
