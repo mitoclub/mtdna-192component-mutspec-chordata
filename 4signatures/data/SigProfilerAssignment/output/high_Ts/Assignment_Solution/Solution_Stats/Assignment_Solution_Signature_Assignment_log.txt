@@ -81,12 +81,6 @@ Best Signature Composition ['SBS2', 'SBS5', 'SBS12', 'SBS30', 'SBS44']
 L2 Error % 0.34
 Cosine Similarity 0.94
 
-
-!!!!!!!!!!!!!!!!!!!!!!!!! LAYER: 3 !!!!!!!!!!!!!!!!!!!!!!!!!
-Best Signature Composition ['SBS2', 'SBS5', 'SBS12', 'SBS30', 'SBS44']
-L2 Error % 0.34
-Cosine Similarity 0.94
-
 #################### Final Composition #################################
 ['SBS2', 'SBS5', 'SBS12', 'SBS30', 'SBS44']
 L2 Error % 0.34
