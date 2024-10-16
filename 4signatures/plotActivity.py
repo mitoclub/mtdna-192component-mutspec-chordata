@@ -69,12 +69,13 @@ color_code = pd.DataFrame(np.array([['SBS1', '#acf2d0'],
        ['SBS15', '#fcebc2'],
        ['SBS20', '#fae4af'],
        ['SBS21', '#fae1a5'],
-       ['SBS26', '#c3c3c3'], 
-       ['SBS44', '#707070'], 
-       ['SBS6', '#919191'], 
+       ['SBS26', '#e0dfe1'], 
+       ['SBS44', '#afa9a9'], 
+       ['SBS6', '#868686'],
+       ['SBS12', '#c3c3c3'], 
        ['SBS30', '#ff0000'], 
-       ['SBS12', '#bf0d0d'],
-       ['SBS23', '#e61677']
+       ['SBS23', '#f0c825'],
+       ['SBS19', '#00cccc']
        ], dtype=object),columns=['signature', 'color'])
 
 artifacts_sigs = pd.DataFrame(np.array([['SBS27', '#C8C8C8'],

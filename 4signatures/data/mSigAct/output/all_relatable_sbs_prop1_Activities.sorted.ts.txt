@@ -1,0 +1,16 @@
+Samples	SBS12	SBS21	SBS23	SBS26	SBS30	SBS2	SBS6
+high-Actinopteri	333	0	375	0	259	64	15
+low-Actinopteri	320	2	24	1	109	33	6
+diff-Actinopteri	37	0	282	11	185	28	18
+high-Amphibia	281	38	267	8	388	80	6
+low-Amphibia	232	0	43	0	181	42	9
+diff-Amphibia	0	70	178	60	231	29	0
+high-Lepidosauria	149	58	423	182	312	47	1
+low-Lepidosauria	210	0	42	0	105	18	9
+diff-Lepidosauria	71	43	369	110	205	9	0
+high-Mammalia	496	0	377	0	307	33	0
+low-Mammalia	178	0	50	0	158	22	4
+diff-Mammalia	279	1	233	71	198	14	6
+high-Aves	427	9	334	233	281	70	12
+low-Aves	167	7	52	0	86	8	15
+diff-Aves	513	0	243	2	204	42	0

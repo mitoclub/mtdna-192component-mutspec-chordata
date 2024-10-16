@@ -1,0 +1,31 @@
+Samples	SBS23	SBS26	SBS30	SBS5	SBS12	SBS44	SBS19
+high_Actinopteri__Ts & Tv	0	0	639	174	339	0	0
+high_Actinopteri__Ts	325	0	390	0	331	0	0
+low_Actinopteri__Ts & Tv	0	0	94	198	309	0	0
+low_Actinopteri__Ts	0	0	175	0	321	0	0
+diff_Actinopteri__Ts & Tv	160	0	284	222	0	0	0
+diff_Actinopteri__Ts	264	49	248	0	0	0	0
+high_Amphibia__Ts & Tv	0	0	661	72	382	51	0
+high_Amphibia__Ts	245	0	493	0	332	0	0
+low_Amphibia__Ts	0	0	278	0	229	0	0
+low_Amphibia__Ts & Tv	0	0	202	145	235	21	0
+diff_Amphibia__Ts & Tv	0	75	344	166	0	78	0
+diff_Amphibia__Ts	157	127	283	0	0	0	0
+high_Lepidosauria__Ts & Tv	0	0	480	0	490	51	253
+high_Lepidosauria__Ts	456	0	325	0	397	0	0
+low_Lepidosauria__Ts & Tv	0	0	103	191	183	0	0
+low_Lepidosauria__Ts	0	0	177	0	206	0	0
+diff_Lepidosauria__Ts & Tv	246	221	266	171	0	0	0
+diff_Lepidosauria__Ts	353	230	227	0	0	0	0
+high_Mammalia__Ts & Tv	0	0	639	0	620	43	0
+high_Mammalia__Ts	354	0	361	0	498	0	0
+low_Mammalia__Ts & Tv	0	0	170	169	163	0	0
+low_Mammalia__Ts	0	0	238	0	175	0	0
+diff_Mammalia__Ts & Tv	146	0	235	110	399	0	0
+diff_Mammalia__Ts	253	0	198	0	350	0	0
+high_Aves__Ts	353	0	344	0	674	0	0
+high_Aves__Ts & Tv	242	0	405	0	783	0	0
+low_Aves__Ts & Tv	0	0	110	108	161	16	0
+low_Aves__Ts	63	0	102	0	170	0	0
+diff_Aves__Ts & Tv	0	0	272	0	616	0	201
+diff_Aves__Ts	221	0	263	0	546	0	0
