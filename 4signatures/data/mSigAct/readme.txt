@@ -4,14 +4,14 @@ prop1
 custom_from1
     prior probability for SBSs derived from prop1
 
-SBS12	0.338876
-SBS30	0.291320
-SBS23	0.198337
-SBS26	0.035707
-SBS2	0.032414
-SBS42	0.020203
-SBS19	0.017271
-SBS21	0.015705
+SBS12	0.319994
+SBS30	0.292430
+SBS23	0.197766
+SBS26	0.052957
+SBS2	0.033872
+SBS42	0.019849
+SBS21	0.017117
+
 custom_prop
     priors based on SigProfiler for signatures assignment for mSigAct
 SBS2     0.01
